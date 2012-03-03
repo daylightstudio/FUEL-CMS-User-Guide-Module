@@ -84,17 +84,14 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		
 	}
 	
-	function current_page()
-	{
-		return $this->current_page;
-	}
+	// --------------------------------------------------------------------
 
-	function set_current_page($page)
-	{
-		$this->current_page = $page;
-		return $this->current_page;
-	}
-	
+	/**
+	 * Initializes the user guide page
+	 * 
+	 * @access	public
+	 * @return	void
+	 */
 	function init_page()
 	{
 		$uri = uri_path(FALSE);
@@ -106,7 +103,43 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$this->set_current_page($new_uri);
 	}
 	
-	function get_page_segment($segment)
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns the current user guide page
+	 * 
+	 * @access	public
+	 * @return	string
+	 */
+	function current_page()
+	{
+		return $this->current_page;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Sets the current user guide page
+	 * 
+	 * @access	public
+	 * @param	string The name of the display option
+	 * @return	void
+	 */
+	function set_current_page($page)
+	{
+		$this->current_page = $page;
+	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns user guide page segment
+	 * 
+	 * @access	public
+	 * @param	int The segment to return
+	 * @return	mixed
+	 */
+	function page_segment($segment)
 	{
 		$segment = $segment - 1;
 
@@ -120,7 +153,16 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return FALSE;
 	}
 	
-	function get_page_title($page)
+	// --------------------------------------------------------------------
+
+	/**
+	 * Gets the current page title based on the H1 value in the page
+	 * 
+	 * @access	public
+	 * @param	string The html of a user guide page
+	 * @return	string
+	 */
+	function page_title($page)
 	{
 		preg_match('#<h1>(.+)<\/h1>#U', $page, $matches);
 		if (!empty($matches[1]))
@@ -131,7 +173,16 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		
 	}
 	
-	function get_breadcrumb($page = NULL)
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns user guide page segment
+	 * 
+	 * @access	public
+	 * @param	string The html of a user guide page
+	 * @return	mixed
+	 */
+	function breadcrumb($page = NULL)
 	{
 		if (empty($page))
 		{
@@ -151,6 +202,15 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return $vars['breadcrumb'];
 	}
 	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns an array of page variables which determines whether to display things like the search area, breadcrumb, top navigation and the footer
+	 * 
+	 * @access	public
+	 * @param	string The html of a user guide page
+	 * @return	array
+	 */
 	function get_vars($page = NULL)
 	{
 		if (empty($page))
@@ -169,11 +229,30 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return $vars;
 	}
 	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns a single display option
+	 * 
+	 * @access	public
+	 * @param	string The name of the display option
+	 * @param	boolean A TRUE/FALSE value which determines whether to display a certain area
+	 * @return	void
+	 */
 	function set_display_option($opt, $val)
 	{
 		$this->display_options[$opt] = $val;
 	}
 	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns a single display option
+	 * 
+	 * @access	public
+	 * @param	string The display option key (optional)
+	 * @return	array
+	 */
 	function display_option($opt = NULL)
 	{
 		$opts = $this->display_options();
@@ -184,6 +263,21 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return FALSE;
 	}
 	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns the all the various display options as an array:
+	 * 
+	<ul>
+		<li><strong>use_search</strong></li>
+		<li><strong>use_breadcrumb</strong></li>
+		<li><strong>use_nav</strong></li>
+		<li><strong>use_footer</strong></li>
+	</ul>
+	 * 
+	 * @access	public
+	 * @return	array
+	 */
 	function display_options()
 	{
 		return $this->display_options;
@@ -201,14 +295,24 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 *
 	 * @access	public
 	 * @param	string	Name of class
-	 * @param	array 	Variables to be passed to the layout
-	 * @param	string	Module folder name
-	 * @param	string	Subfolder in module. Deafult is the libraries
+	 * @param	array 	Variables to be passed to the layout (optional)
+	 * @param	string	Module folder name (optional)
+	 * @param	string	Subfolder in module. Deafult is the libraries (optional)
 	 * @return	string
 	 */
-	function generate_docs($file, $vars = array(), $module = 'fuel', $folder = 'libraries')
+	function generate_docs($file, $vars = array(), $module = NULL, $folder = 'libraries')
 	{
+		if (empty($module))
+		{
+			$module = $this->page_segment(2);
+		}
+		
+		if ($folder == 'libraries')
+		{
+			$file = ucfirst($file);
+		}
 		$class_path = MODULES_PATH.$module.'/'.$folder.'/'.$file.'.php';
+		
 		$this->CI->load->library('inspection');
 		$vars['module'] = $module;
 		$vars['folder'] = $folder;
@@ -235,8 +339,91 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return $this->load_view('_layouts/'.$layout, $vars, TRUE);
 	}
 	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns a a table of contents for your documentation
+	 * 
+	 * @access	public
+	 * @param	array	An array of files to exclude from the list (optional)
+	 * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+	 * @return	string
+	 */
+	function generate_toc($exclude = array(), $module = NULL, $return_array = FALSE)
+	{
+		$this->CI->load->helper('inflector');
+		
+		if (empty($module))
+		{
+			$module = $this->page_segment(2);
+		}
+		
+		$libraries = $this->folder_files('libraries', $exclude, $module);
+		$vars['libraries'] = $libraries;
+		
+		$helpers = $this->folder_files('helpers', $exclude, $module);
+		$vars['helpers'] = $helpers;
+		
+		if ($return_array === TRUE)
+		{
+			return $vars;
+		}
+		
+		$vars['module'] = humanize($module);
+		return $this->block('toc', $vars);
+		
+	}
 	
-	function block($block, $vars, $return = TRUE)
+	function folder_files($folder, $exclude = array(), $module = NULL)
+	{
+		$this->CI->load->helper('file');
+		$this->CI->load->helper('directory');
+		
+		if (empty($module))
+		{
+			$module = $this->page_segment(2);
+		}
+		
+		$module_path = MODULES_PATH.$module.'/';
+	
+		// force exclude to an array
+		$exclude = (array) $exclude;
+		
+		// add PHP extension if it doesn't exist'
+		foreach($exclude as $key => $val)
+		{
+			if (!preg_match('#.+\.php$#', $val))
+			{
+				$exclude[$key] = $val.EXT;
+			}
+		}
+		$exclude[] = 'index.html';
+		
+		$files = directory_to_array($module_path.$folder, FALSE, $exclude, FALSE, TRUE);
+		$return = array();
+		if (is_array($files))
+		{
+			foreach($files as $file)
+			{
+				$url = user_guide_url('modules/'.$module.'/'.strtolower($file));
+				$return[$url] = $file;
+			}
+		}
+		return $return;
+	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns a single display option
+	 * 
+	 * @access	public
+	 * @param	string	The name of the a block to display
+	 * @param	array	An array of variables to pass to the block (optional)
+	 * @param	boolean	A TRUE/FALSE value which determines whether to return the block as a string (TRUE) or send it to the output (FALSE)
+	 * @return	array
+	 */
+	function block($block, $vars = array(), $return = TRUE)
 	{
 		$output = $this->load_view('_blocks/'.$block, $vars, $return);
 		
@@ -245,7 +432,8 @@ class Fuel_user_guide extends Fuel_advanced_module {
 			return $output;
 		}
 	}
+	
 }
 
 /* End of file Fuel_user_guide.php */
-/* Location: ./modules/fuel/libraries/Fuel_user_guide.php */
+/* Location: ./modules/user_guide/libraries/Fuel_user_guide.php */

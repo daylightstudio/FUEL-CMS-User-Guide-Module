@@ -1,5 +1,5 @@
 <?php if (!empty($return)) : ?>
-<h3>Returns</h3>
+<h4>Returns</h4>
 <pre>
 <?php 
 if (!empty($return)) :

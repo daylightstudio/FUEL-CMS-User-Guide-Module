@@ -53,7 +53,6 @@ class User_guide extends Fuel_base_controller {
 		// get modules
 		$modules = array('', 'fuel');
 		$modules = array_merge($modules, $this->config->item('modules_allowed', 'fuel'));
-
 		$vars = $this->fuel->user_guide->get_vars($this->current_page);
 		
 		foreach($modules as $m)
@@ -62,7 +61,7 @@ class User_guide extends Fuel_base_controller {
 				file_exists(MODULES_PATH.$m.'/views/_docs/index'.EXT)) 
 			{
 				$module_view = $this->load->module_view($m, '_docs/index', array(), TRUE);
-				$mod_page_title = $this->fuel->user_guide->get_page_title($module_view);
+				$mod_page_title = $this->fuel->user_guide->page_title($module_view);
 				$vars['modules'][$m] = (!empty($mod_page_title)) ? $mod_page_title : humanize($m).' Module';
 			}
 		}
@@ -73,12 +72,13 @@ class User_guide extends Fuel_base_controller {
 		$module_page = uri_path(FALSE, $uri_path_index);
 		$module_view_path = (!empty($module_page)) ? '_docs/'.$module_page : '_docs/index';
 		$allow_auto_generation = $this->fuel->user_guide->config('allow_auto_generation');
-		if ($this->fuel->user_guide->get_page_segment(1) == 'modules' AND $this->fuel->user_guide->get_page_segment(2))
+		if ($this->fuel->user_guide->page_segment(1) == 'modules' AND $this->fuel->user_guide->page_segment(2))
 		{
-			$module = $this->fuel->user_guide->get_page_segment(2);
-			$file = $this->fuel->user_guide->get_page_segment(3);
+			$module = $this->fuel->user_guide->page_segment(2);
+			$file = $this->fuel->user_guide->page_segment(3);
 			
 			$body = '';
+
 			if (file_exists(MODULES_PATH.$module.'/views/'.$module_view_path.EXT))
 			{
 				$body = $this->load->module_view($module, $module_view_path, $vars, TRUE);
@@ -87,7 +87,7 @@ class User_guide extends Fuel_base_controller {
 			{
 				if (!empty($file))
 				{
-					$uri_folder = $this->fuel->user_guide->get_page_segment(4);
+					$uri_folder = $this->fuel->user_guide->page_segment(4);
 					$valid_folders = array('libraries', 'helpers');
 					$file_name = ucfirst($file);
 
@@ -99,20 +99,27 @@ class User_guide extends Fuel_base_controller {
 					}
 					
 					$file_path = MODULES_PATH.$module.'/'.$folder.'/'.$file_name.EXT;
-					
+
 					if (file_exists($file_path))
 					{
 						$body = $this->fuel->user_guide->generate_docs($file_name, array(), $module, $folder);
 					}
 				}
 			}
-			
+
 			if (!$this->fuel->user_guide->config('authenticate') OR $this->fuel->auth->has_permission('user_guide_'.$module) AND isset($body))
 			{
 				$vars['body'] = $body;
 				if ($file)
 				{
-					$vars['sections'] = array($vars['modules'][$module] => 'modules/'.$module);
+					if (isset($vars['modules'][$module]))
+					{
+						$vars['sections'] = array($vars['modules'][$module] => 'modules/'.$module);
+					}
+					else
+					{
+						show_404();
+					}
 				}
 			}
 			
@@ -124,9 +131,9 @@ class User_guide extends Fuel_base_controller {
 				show_404();
 			}
 			$vars['body'] = $this->load->module_view(USER_GUIDE_FOLDER, $this->current_page, $vars, TRUE);
-			if ($this->fuel->user_guide->get_page_segment(2))
+			if ($this->fuel->user_guide->page_segment(2))
 			{
-				$vars['sections'] = $this->fuel->user_guide->get_breadcrumb($this->current_page);
+				$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
 			}
 		}
 		
@@ -135,7 +142,7 @@ class User_guide extends Fuel_base_controller {
 			show_404();
 		}
 		
-		$vars['page_title'] = $this->fuel->user_guide->get_page_title($vars['body']);
+		$vars['page_title'] = $this->fuel->user_guide->page_title($vars['body']);
 		$this->load->module_view(USER_GUIDE_FOLDER, '_layouts/user_guide', $vars);
 	}
 }

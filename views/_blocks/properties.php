@@ -1,5 +1,5 @@
 <?php if ($class->properties()) : ?>
-<h1>Properties Reference</h1>
+<h2>Properties Reference</h2>
 
 <table border="0" cellspacing="1" cellpadding="0" class="tableborder">
 	<tbody>
@@ -25,6 +25,12 @@
 				{
 					echo htmlentities($prop_obj->value);
 				} 
+				else if (is_array($prop_obj->value))
+				{
+					echo "<pre>";
+					print_r($prop_obj->value);
+					echo "</pre>";
+				}
 				else if (!empty($prop_obj->value))
 				{
 					echo $prop_obj->value;
@@ -37,6 +43,5 @@
 	</tbody>
 </table>
 
-<br />
 <br />
 <?php endif; ?>

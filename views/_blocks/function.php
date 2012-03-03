@@ -24,4 +24,4 @@ if ($num_parameters)
 }
 ?>
 
-<h2 id="func_<?=strtolower($func_name)?>"><?=$prefix?><?=$func_name?>(<?=implode(', ', $params)  ?>)</h2>
+<h3 id="func_<?=strtolower($func_name)?>"><?=$prefix?><?=$func_name?>(<?=implode(', ', $params)  ?>)</h3>

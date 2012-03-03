@@ -53,7 +53,7 @@ function user_guide_url($uri = '')
 // --------------------------------------------------------------------
 
 /**
- * Generates the class documentation based on the class passed to it
+ * Generates the class documentation based on the class passed to it.  Shortcut to the Fuel_user_guide::generate_docs() method.
  * 
  * <code>
  * $vars = array('intro');
@@ -67,8 +67,44 @@ function user_guide_url($uri = '')
  * @param	string	Subfolder in module. Deafult is the libraries
  * @return	string
  */
-function generate_docs($class, $vars = array(), $module = 'fuel', $folder = 'libraries')
+function generate_docs($class, $vars = array(), $module = NULL, $folder = 'libraries')
 {
 	$CI =& get_instance();
 	return $CI->fuel->user_guide->generate_docs($class, $vars, $module, $folder);
 }
+
+// --------------------------------------------------------------------
+
+/**
+ * Returns a a table of contents for your documentation. Shortcut to the Fuel_user_guide::generate_toc() method.
+ * 
+ * @access	public
+ * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+ * @return	string
+ */
+function generate_toc($module = NULL)
+{
+	$CI =& get_instance();
+	return $CI->fuel->user_guide->generate_toc($module);
+}
+
+// --------------------------------------------------------------------
+
+/**
+ * Returns a single display option.  Shortcut to the Fuel_user_guide::block() method.
+ * 
+ * @access	public
+ * @param	string	The name of the a block to display
+ * @param	array	An array of variables to pass to the block (optional)
+ * @param	boolean	A TRUE/FALSE value which determines whether to return the block as a string (TRUE) or send it to the output (FALSE)
+ * @return	array
+ */
+function user_guide_block($block, $vars = array(), $return = TRUE)
+{
+	$CI =& get_instance();
+	return $CI->fuel->user_guide->block($block, $vars, $return);
+}
+
+
+/* End of file user_guide_helper.php */
+/* Location: ./modules/user_guide/libraries/user_guide_helper.php */

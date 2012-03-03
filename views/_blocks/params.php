@@ -1,5 +1,5 @@
 <?php if (!empty($params)) : ?>
-<h3>Parameters</h3>
+<h4>Parameters</h4>
 <pre>
 <?php 
 if (!empty($params))

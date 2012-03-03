@@ -187,6 +187,17 @@ if ($record->prop_exists('email')))
 </pre>
 
 
+<h2>$example_record->parent_model(<var>'prop'</var>)</h2>
+<p>Returns the record object's parent table model object.</p>
+
+<pre class="brush: php">
+$record = $this->examples_model->find_one(array('email' => 'dvader@deathstar.com')); 
+
+// Same as above
+$record->parent_model()->find_one(array('email' => 'dvader@deathstar.com');
+</pre>
+
+
 <h2>$example_record->debug_query()</h2>
 <p>Prints to the screen the last query run by the parent model. An alias to the parent model's debug_query method.</p>
 

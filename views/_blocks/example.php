@@ -1,5 +1,5 @@
 <?php if (!empty($example)) : ?>
-<h3>Example</h3>
+<h4>Example</h4>
 <pre class="brush: php">
 <?=$example?>
 </pre>

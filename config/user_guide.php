@@ -24,4 +24,4 @@ $config['user_guide']['root_url'] = FUEL_ROUTE.'tools/user_guide/';
 // allows the user guide to try and automatically generate the documentation based on folder paths.
 // the value set is an array of modules to allow it to automatically generate.
 // setting it to TRUE will allow all modules
-$config['user_guide']['allow_auto_generation'] = array('fuel');
+$config['user_guide']['allow_auto_generation'] = TRUE;
