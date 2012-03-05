@@ -72,7 +72,16 @@ class User_guide extends Fuel_base_controller {
 		$module_page = uri_path(FALSE, $uri_path_index);
 		$module_view_path = (!empty($module_page)) ? '_docs/'.$module_page : '_docs/index';
 		$allow_auto_generation = $this->fuel->user_guide->config('allow_auto_generation');
-		if ($this->fuel->user_guide->page_segment(1) == 'modules' AND $this->fuel->user_guide->page_segment(2))
+		
+		if (is_file(USER_GUIDE_PATH.'views/'.$this->current_page.EXT))
+		{
+			$vars['body'] = $this->load->module_view(USER_GUIDE_FOLDER, $this->current_page, $vars, TRUE);
+			if ($this->fuel->user_guide->page_segment(2))
+			{
+				$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
+			}
+		}
+		else if ($this->fuel->user_guide->page_segment(1) == 'modules' AND $this->fuel->user_guide->page_segment(2))
 		{
 			$module = $this->fuel->user_guide->page_segment(2);
 			$file = $this->fuel->user_guide->page_segment(3);
@@ -88,7 +97,7 @@ class User_guide extends Fuel_base_controller {
 				if (!empty($file))
 				{
 					$uri_folder = $this->fuel->user_guide->page_segment(4);
-					$valid_folders = array('libraries', 'helpers');
+					$valid_folders = $this->fuel->user_guide->valid_folders;
 					$file_name = ucfirst($file);
 
 					$folder = ($uri_folder AND in_array($uri_folder, $valid_folders)) ? $uri_folder : 'libraries';
@@ -102,7 +111,7 @@ class User_guide extends Fuel_base_controller {
 
 					if (file_exists($file_path))
 					{
-						$body = $this->fuel->user_guide->generate_docs($file_name, array(), $module, $folder);
+						$body = $this->fuel->user_guide->generate_docs($file_name, $folder, $module, array());
 					}
 				}
 			}
@@ -126,15 +135,7 @@ class User_guide extends Fuel_base_controller {
 		}
 		else
 		{
-			if (!is_file(USER_GUIDE_PATH.'views/'.$this->current_page.EXT))
-			{
-				show_404();
-			}
-			$vars['body'] = $this->load->module_view(USER_GUIDE_FOLDER, $this->current_page, $vars, TRUE);
-			if ($this->fuel->user_guide->page_segment(2))
-			{
-				$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
-			}
+			show_404();
 		}
 		
 		if (empty($vars['body']))

@@ -67,16 +67,16 @@ function user_guide_url($uri = '')
  * @param	string	Subfolder in module. Deafult is the libraries
  * @return	string
  */
-function generate_docs($class, $vars = array(), $module = NULL, $folder = 'libraries')
+function generate_docs($class, $folder = 'libraries', $module = NULL, $vars = array())
 {
 	$CI =& get_instance();
-	return $CI->fuel->user_guide->generate_docs($class, $vars, $module, $folder);
+	return $CI->fuel->user_guide->generate_docs($class, $folder, $module, $vars);
 }
 
 // --------------------------------------------------------------------
 
 /**
- * Returns a a table of contents for your documentation. Shortcut to the Fuel_user_guide::generate_toc() method.
+ * Returns a table of contents for your documentation. Shortcut to the Fuel_user_guide::generate_toc() method.
  * 
  * @access	public
  * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
@@ -86,6 +86,21 @@ function generate_toc($module = NULL)
 {
 	$CI =& get_instance();
 	return $CI->fuel->user_guide->generate_toc($module);
+}
+
+// --------------------------------------------------------------------
+
+/**
+ * Returns a list of configuration parameter for the advanced module. Shortcut to the Fuel_user_guide::generate_config_info() method.
+ * 
+ * @access	public
+ * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+ * @return	string
+ */
+function generate_config_info($module = NULL)
+{
+	$CI =& get_instance();
+	return $CI->fuel->user_guide->generate_config_info($module);
 }
 
 // --------------------------------------------------------------------

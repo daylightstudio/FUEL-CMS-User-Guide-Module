@@ -40,6 +40,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									'use_nav' => TRUE,
 									'user_footer' => TRUE,
 									);
+	public $valid_folders = array('libraries', 'helpers');
 	protected $current_page;
 
 	/**
@@ -197,7 +198,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		if (is_file(USER_GUIDE_PATH.'/views'.$prev_page.EXT))
 		{
 			$prev_view = $this->CI->load->module_view(USER_GUIDE_FOLDER, $prev_page, $vars, TRUE);
-			$vars['breadcrumb'][$this->get_page_title($prev_view)] = $prev_page;
+			$vars['breadcrumb'][$this->page_title($prev_view)] = $prev_page;
 		}
 		return $vars['breadcrumb'];
 	}
@@ -295,13 +296,19 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 *
 	 * @access	public
 	 * @param	string	Name of class
-	 * @param	array 	Variables to be passed to the layout (optional)
 	 * @param	string	Module folder name (optional)
 	 * @param	string	Subfolder in module. Deafult is the libraries (optional)
+	 * @param	array 	Variables to be passed to the layout (optional)
 	 * @return	string
 	 */
-	function generate_docs($file, $vars = array(), $module = NULL, $folder = 'libraries')
+	function generate_docs($file, $folder = 'libraries', $module = NULL, $vars = array())
 	{
+		// must be a valid folder
+		if (!in_array($folder, $this->valid_folders))
+		{
+			return '';
+		}
+		
 		if (empty($module))
 		{
 			$module = $this->page_segment(2);
@@ -342,48 +349,136 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Returns a a table of contents for your documentation
+	 * Returns a table of contents for your documentation
 	 * 
 	 * @access	public
-	 * @param	array	An array of files to exclude from the list (optional)
 	 * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+	 * @param	string	Module folder name (optional)
+	 * @param	array	An array of files to exclude from the list (optional)
+	 * @param	boolean	Whether to return an array of values or a view (optional)
 	 * @return	string
 	 */
-	function generate_toc($exclude = array(), $module = NULL, $return_array = FALSE)
+	function generate_toc($folder = NULL, $module = NULL, $exclude = array(), $return_array = FALSE)
 	{
-		$this->CI->load->helper('inflector');
-		
 		if (empty($module))
 		{
 			$module = $this->page_segment(2);
 		}
+
+		// set variable defaults
+		$vars['libraries'] = NULL;
+		$vars['helpers'] = NULL;
+		if (isset($vars[$folder]))
+		{
+			$vars[$folder] = NULL;
+		}
 		
-		$libraries = $this->folder_files('libraries', $exclude, $module);
-		$vars['libraries'] = $libraries;
-		
-		$helpers = $this->folder_files('helpers', $exclude, $module);
-		$vars['helpers'] = $helpers;
-		
+		if (isset($folder))
+		{
+			$files = $this->folder_files($folder, $module, $exclude);
+			$folder = end(explode('/', $folder));
+			$vars[$folder] = $files;
+		}
+		else
+		{
+
+			$libraries = $this->folder_files('libraries', $module,  $exclude);
+			$vars['libraries'] = $libraries;
+
+			$helpers = $this->folder_files('helpers',$module, $exclude);
+			$vars['helpers'] = $helpers;
+		}
+
 		if ($return_array === TRUE)
 		{
 			return $vars;
 		}
 		
-		$vars['module'] = humanize($module);
 		return $this->block('toc', $vars);
 		
 	}
 	
-	function folder_files($folder, $exclude = array(), $module = NULL)
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns a a table of contents for your documentation
+	 * 
+	 * @access	public
+	 * @param	string	Module folder name (optional)
+	 * @param	boolean	Whether to return an array of values or a view (optional)
+	 * @return	mixed
+	 */
+	function generate_config_info($module = NULL, $return_array = FALSE)
+	{
+		$config_path = MODULES_PATH.$module.'/config/'.$module.EXT;
+		if (file_exists($config_path))
+		{
+			$file = file_get_contents($config_path);
+		}
+		
+		$config = array();
+		if (!empty($file))
+		{
+			// preg_match_all("#//(.+)\$config\[['|\"]".$module."\\2\]\[(['|\"])(.+)\\3\]\s*=\s*(.+)#ms", $file, $matches);
+			preg_match_all("#^//(.+);#Ums", $file, $matches);
+			
+			if (isset($matches[1]))
+			{
+				foreach($matches[1] as $match)
+				{
+					// remove any extra comment slashes
+					$match = str_replace('//', '', $match);
+					$match = trim_multiline($match);
+					preg_match('#\$config\[([\'|"])'.$module.'\\1\]\[([\'|"])(.+)\\2\]\s*=\s*(.+)#ms', $match, $key_arr);
+					if (isset($key_arr[3]) AND isset($key_arr[4]))
+					{
+						$key = $key_arr[3];
+						$comment = current(explode('$config', $match));
+						$default = '<pre>'.$key_arr[4].'</pre>';
+						$c = new stdClass();
+						$c->param = $key;
+						$c->comment  = $comment;
+						$c->default_value = $default;
+						$config[$key] = $c;
+					}
+				}
+			}
+		}
+		$vars['config'] = $config;
+		$vars['module'] = $module;
+		return $this->block('config', $vars);
+		
+	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns an array with the keys as links and the values as the name of the file
+	 * 
+	 * @access	public
+	 * @param	stirng	The name of the folder relative to the MODULES_PATH
+	 * @param	string	Module folder name (optional)
+	 * @param	array	An array of files to exclude from the list (optional)
+	 * @return	array
+	 */
+	function folder_files($folder, $module = NULL, $exclude = array())
 	{
 		$this->CI->load->helper('file');
 		$this->CI->load->helper('directory');
+		
+		$folder_arr = explode('/', $folder);
+		
+		if (isset($folder_arr[1]))
+		{
+			$module = $folder_arr[0];
+			$folder = $folder_arr[1];
+		}
 		
 		if (empty($module))
 		{
 			$module = $this->page_segment(2);
 		}
-		
+
 		$module_path = MODULES_PATH.$module.'/';
 	
 		// force exclude to an array
@@ -398,15 +493,15 @@ class Fuel_user_guide extends Fuel_advanced_module {
 			}
 		}
 		$exclude[] = 'index.html';
-		
 		$files = directory_to_array($module_path.$folder, FALSE, $exclude, FALSE, TRUE);
+		
 		$return = array();
 		if (is_array($files))
 		{
 			foreach($files as $file)
 			{
 				$url = user_guide_url('modules/'.$module.'/'.strtolower($file));
-				$return[$url] = $file;
+				$return[$url] = humanize($file);
 			}
 		}
 		return $return;
