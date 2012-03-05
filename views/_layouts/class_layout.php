@@ -1,7 +1,8 @@
 <?php if (!empty($class)) : ?>
 
 <h1><?=$class->friendly_name()?> Class</h1>
-<?=$class->comment()->description(array('periods', 'one_line', 'eval', 'markdown'))?>
+<?=$class->comment()->description(array('long', 'periods', 'one_line', 'markdown'))?>
+
 
 <?=user_guide_block('properties', array('class' => $class)) ?>
 
