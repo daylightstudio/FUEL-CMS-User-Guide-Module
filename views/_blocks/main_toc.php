@@ -42,7 +42,7 @@
 				
 				<h2>General Topics</h2>
 				<ul>
-					<li>What is FUEL CMS?</li>
+					<li><a href="<?=user_guide_url('general/what-is-fuel')?>">What is FUEL CMS?</a></li>
 					<li><a href="<?=user_guide_url('general/interface')?>">Interface</a></li>
 					<li>Dashboards</li>
 					<li>Pages/Views</li>

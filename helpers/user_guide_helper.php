@@ -80,12 +80,15 @@ function generate_docs($class, $folder = 'libraries', $module = NULL, $vars = ar
  * 
  * @access	public
  * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+ * @param	string	Module folder name (optional)
+ * @param	array	An array of files to exclude from the list (optional)
+ * @param	boolean	Whether to return an array of values or a view (optional)
  * @return	string
  */
-function generate_toc($module = NULL)
+function generate_toc($folder = NULL, $module = NULL, $exclude = array(), $return_array = FALSE)
 {
 	$CI =& get_instance();
-	return $CI->fuel->user_guide->generate_toc($module);
+	return $CI->fuel->user_guide->generate_toc($folder, $module, $exclude, $return_array);
 }
 
 // --------------------------------------------------------------------

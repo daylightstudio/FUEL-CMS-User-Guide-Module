@@ -410,6 +410,11 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 */
 	function generate_config_info($module = NULL, $return_array = FALSE)
 	{
+		if (empty($module))
+		{
+			$module = $this->page_segment(2);
+		}
+
 		$config_path = MODULES_PATH.$module.'/config/'.$module.EXT;
 		if (file_exists($config_path))
 		{
