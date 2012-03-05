@@ -2,7 +2,7 @@
 
 <h1><?=$helper?></h1>
 <?php if (isset($comments[1]) AND $comments[1]->tags('package')) : ?>
-<?=$comments[1]->description(array('periods', 'one_line', 'eval', 'markdown'))?>
+<p><?=$comments[1]->description(array('long'))?></p>
 <?php endif; ?>
 
 <h2>Function Reference</h2>
