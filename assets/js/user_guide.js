@@ -9,14 +9,20 @@ $(function(){
 		}
 	);
 	
-	$('.func_close').click(function(){
-		$('.func_name').next().slideDown('fast');
-		return false;
-	})
-	$('.func_open').click(function(){
-		$('.func_name').next().slideUp('fast');
-		return false;
-	})
+	$('.func_toggle').toggle(
+		function(){
+			$('.func_name').next().slideDown('fast');
+			$(this).html('-');
+			return false;
+		},
+		function(){
+			$('.func_name').next().slideUp('fast');
+			$(this).html('+');
+			return false;
+		}
+	
+	)
+	
 	$('.func_name').css('cursor', 'pointer').toggle(
 		function(){
 			$(this).next().slideDown('fast');

@@ -1,4 +1,4 @@
-<h2>Function Reference [<a href="#" class="func_close">+</a>/<a href="#" class="func_open">-</a>]</h2>
+<h2>Function Reference [<a href="#" class="func_toggle">+</a>]</h2>
 
 <?php 
 
