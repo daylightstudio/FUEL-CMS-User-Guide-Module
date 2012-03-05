@@ -30,17 +30,6 @@
 					<li><a href="<?=user_guide_url('general/pages-layouts-modules-blocks')?>">Pages, Layouts, Modules &amp; Blocks</a></li>
 				</ul>
 				
-				<h3>General Topics</h3>
-				<ul>
-					<li><a href="<?=user_guide_url('general/interface')?>">FUEL CMS Interface</a></li>
-					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
-					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
-					<li><a href="<?=user_guide_url('general/security')?>">Security</a></li>
-					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
-					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
-					<li><a href="http://www.getfuelcms.com/blog/2011/03/14/fuel-cms-0.9.3-released">What's New With 0.9.3</a></li>
-				</ul>
-
 				<h3>Additional Resources</h3>
 				<ul>
 					<li><a href="http://www.getfuelcms.com/blog">FUEL CMS's Blog</a></li>
@@ -50,7 +39,35 @@
 
 			</td>
 			<td class="td_sep">
+				
+				<h2>General Topics</h2>
+				<ul>
+					<li>What is FUEL CMS?</li>
+					<li><a href="<?=user_guide_url('general/interface')?>">Interface</a></li>
+					<li>Dashboards</li>
+					<li>Pages/Views</li>
+					<li>Layouts</li>
+					<li>Variables</li>
+					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
+					<li>Navigation</li>
+					<li>Blocks</li>
+					<li>Assets</li>
+					<li>User Management</li>
+					<li>Modules</li>
+					<li>Models</li>
+					<li>Forms</li>
+					<li>Template Parsing</li>
+					<li>Hooks</li>
+					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
+					<li>Javascript</li>
 					
+					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
+					<li><a href="<?=user_guide_url('general/security')?>">Security</a></li>
+					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
+					<li><a href="#">What's New In FUEL CMS 1.0</a></li>
+				</ul>
+
+				
 				<h2>Modules</h2>
 				<ul>
 					<li><a href="<?=user_guide_url('modules')?>">Modules Overview</a></li>
@@ -83,9 +100,10 @@
 				
 			</td>
 			<td class="td_sep">
-				<h2>Classes</h2>
 				
-				<h3>FUEL Classes Reference</h3>
+				<?=generate_toc('libraries', 'fuel');?>
+				
+				
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/asset')?>">Asset Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/data_table')?>">Data_table Class</a></li>
@@ -121,6 +139,9 @@
 
 			</td>
 			<td class="td_sep">
+			
+				<?=generate_toc('helpers', 'fuel');?>
+				
 				<h2>Helpers</h2>
 				<ul>
 					<li><a href="<?=user_guide_url('helpers/my_helper')?>">MY helper</a></li>
