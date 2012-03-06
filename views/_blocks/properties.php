@@ -23,7 +23,7 @@
 				}
 				else if (is_string($prop_obj->value))
 				{
-					echo htmlentities($prop_obj->value);
+					echo str_replace(array("\n", "\t"), array('\n', '\t'), htmlentities($prop_obj->value));
 				} 
 				else if (is_array($prop_obj->value))
 				{
