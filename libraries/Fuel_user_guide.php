@@ -30,18 +30,19 @@
 
 class Fuel_user_guide extends Fuel_advanced_module {
 	
-	public $use_search = TRUE;
-	public $use_breadcrumb = TRUE;
-	public $use_nav = TRUE;
-	public $use_footer = TRUE;
+	public $use_search = TRUE; // Whether to display the search at the top
+	public $use_breadcrumb = TRUE; // Whether to display the breadcrumb
+	public $use_nav = TRUE; // Whether to display the TOC navigation
+	public $use_footer = TRUE; // Whether to display the footer
 	public $display_options = array(
 									'use_search' => TRUE,
 									'use_breadcrumb' => TRUE,
 									'use_nav' => TRUE,
 									'user_footer' => TRUE,
-									);
-	public $valid_folders = array('libraries', 'helpers');
+									); // Default display options
+	public $valid_folders = array('libraries', 'helpers'); // valid folders for autom documentation
 	protected $current_page;
+	protected $_examples;
 
 	/**
 	 * Constructor - Sets user guide preferences
@@ -318,11 +319,22 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			$file = ucfirst($file);
 		}
-		$class_path = MODULES_PATH.$module.'/'.$folder.'/'.$file.'.php';
+		$class_path = MODULES_PATH.$module.'/'.$folder.'/'.$file.EXT;
 		
+		// bring in examples if they exist
+		$examples_path = MODULES_PATH.$module.'/views/_docs/examples/'.strtolower($file).'_examples'.EXT;
+		$examples = array();
+		if (file_exists($examples_path))
+		{
+			include($examples_path);
+		}
+		$examples = array_merge($examples, $this->_examples);
+		
+		// load the inspection class to generate the documentation
 		$this->CI->load->library('inspection');
 		$vars['module'] = $module;
 		$vars['folder'] = $folder;
+		$vars['examples'] = $examples;
 		
 		$vars['user_guide_links_func'] = create_function('$source', '
 			$source = str_replace(array("[user_guide_url]", "<user_guide_url>"), "'.user_guide_url().'/", $source);
@@ -397,7 +409,6 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		return $this->block('toc', $vars);
 		
 	}
-	
 	// --------------------------------------------------------------------
 
 	/**
@@ -531,6 +542,22 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			return $output;
 		}
+	}
+	
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Sets an example for a specific method/function
+	 * 
+	 * @access	public
+	 * @param	stirng	The name of the method/function
+	 * @param	string	The example to associate with the method/function
+	 * @return	void
+	 */
+	function set_example($func, $example)
+	{
+		$this->_examples[$func] = $example;
 	}
 	
 }

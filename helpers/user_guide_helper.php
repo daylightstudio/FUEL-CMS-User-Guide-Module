@@ -123,6 +123,24 @@ function user_guide_block($block, $vars = array(), $return = TRUE)
 	return $CI->fuel->user_guide->block($block, $vars, $return);
 }
 
+	
+// --------------------------------------------------------------------
+
+/**
+ * Sets an example for a specific method/function
+ * 
+ * @access	public
+ * @param	stirng	The name of the method/function
+ * @param	string	The example to associate with the method/function
+ * @return	void
+ */
+function set_user_guide_example($func, $example)
+{
+	$CI =& get_instance();
+	return $CI->fuel->user_guide->set_example($func, $example);
+	
+}
+	
 
 /* End of file user_guide_helper.php */
 /* Location: ./modules/user_guide/libraries/user_guide_helper.php */

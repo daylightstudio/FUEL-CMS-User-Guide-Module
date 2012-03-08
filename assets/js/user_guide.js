@@ -8,7 +8,7 @@ $(function(){
 			$('#nav').slideUp();
 		}
 	);
-	
+
 	$('.func_toggle').toggle(
 		function(){
 			$('.func_name').next().slideDown('fast');
@@ -31,4 +31,8 @@ $(function(){
 			$(this).next().slideUp('fast');
 		}
 	)
+	
+	if ($(window.location.hash).size()){
+		$(window.location.hash).next().slideDown('fast');
+	}
 })
