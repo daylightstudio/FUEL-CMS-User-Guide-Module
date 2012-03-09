@@ -42,7 +42,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									); // Default display options
 	public $valid_folders = array('libraries', 'helpers'); // valid folders for autom documentation
 	protected $current_page;
-	protected $_examples;
+	protected $_examples = array();
 
 	/**
 	 * Constructor - Sets user guide preferences
