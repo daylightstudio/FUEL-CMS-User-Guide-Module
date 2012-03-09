@@ -2,7 +2,7 @@
 <h2>Libraries</h2>
 <ul>
 	<?php foreach($libraries as $link => $library): ?>
-	<li><?=anchor($link, $library)?></li>
+	<li><a href="<?=$link?>"><?=$library?> Class</a></li>
 	<?php endforeach; ?>
 </ul>
 <?php endif; ?>
@@ -11,7 +11,7 @@
 <h2>Helpers</h2>
 <ul>
 	<?php foreach($helpers as $link => $helper): ?>
-	<li><?=anchor($link, $helper)?></li>
+	<li><a href="<?=$link?>"><?=$helper?></a></li>
 	<?php endforeach; ?>
 </ul>
 <?php endif; ?>

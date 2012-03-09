@@ -55,9 +55,9 @@
 					<li>User Management</li>
 					<li>Modules</li>
 					<li>Models</li>
-					<li>Forms</li>
-					<li>Template Parsing</li>
-					<li>Hooks</li>
+					<li><a href="<?=user_guide_url('general/forms')?>">Forms</a></li>
+					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
+					<li><a href="<?=user_guide_url('general/hooks')?>">Hooks</a></li>
 					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
 					<li>Javascript</li>
 					
@@ -100,10 +100,34 @@
 				
 			</td>
 			<td class="td_sep">
+				<h2>Libraries</h2>
+
+				<h3>FUEL Specific Classes</h3>
+				<ul>
+					<li><a href="<?=user_guide_url('libraries/fuel')?>">Fuel</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_admin')?>">Fuel Admin Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_advanced_module')?>">Fuel Advanced Module Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_assets')?>">Fuel Assets Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_auth')?>">Fuel Auth Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_base_controller')?>">Fuel Base Controller Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_base_library')?>">Fuel Base Library Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_blocks')?>">Fuel Blocks Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_cache')?>">Fuel Cache Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_custom_fields')?>">Fuel Custom Fields Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_layouts')?>">Fuel Layouts Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_logs')?>">Fuel Logs Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_modules')?>">Fuel Modules Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_navigation')?>">Fuel Navigation Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_notification')?>">Fuel Notification Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_pages')?>">Fuel Pages Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_pagevars')?>">Fuel Pagevars Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_permissions')?>">Fuel Permissions Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_sitevars')?>">Fuel Sitevars Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_users')?>">Fuel Users Class</a></li>
+				</ul>
+
 				
-				<?=generate_toc('libraries', 'fuel');?>
-				
-				
+				<h3>General Classes</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/asset')?>">Asset Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/data_table')?>">Data_table Class</a></li>
@@ -112,6 +136,7 @@
 					<li><a href="<?=user_guide_url('libraries/menu')?>">Menu Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/validator')?>">Validator Class</a></li>
 				</ul>
+				<?=generate_toc('libraries', 'fuel');?>
 
 				<h3>Abstract FUEL Classes Reference</h3>
 				<ul>
@@ -143,17 +168,22 @@
 				<?=generate_toc('helpers', 'fuel');?>
 				
 				<h2>Helpers</h2>
+				<h3>FUEL Specific Helpers</h3>
+				<ul>
+					<li><a href="<?=user_guide_url('helpers/fuel_helper')?>">FUEL helper</a></li>
+				</ul>
+				
+				
 				<ul>
 					<li><a href="<?=user_guide_url('helpers/my_helper')?>">MY helper</a></li>
 				</ul>
-				<h3>FUEL Helpers</h3>
+				<h3>General Helpers</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('helpers/ajax_helper')?>">Ajax helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/asset_helper')?>">Asset helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/browser_helper')?>">Browser helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/compatibility_helper')?>">Compatibility helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/convert_helper')?>">Convert helper</a></li>
-					<li><a href="<?=user_guide_url('helpers/fuel_helper')?>">FUEL helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/format_helper')?>">Format helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/google_helper')?>">Google helper</a></li>
 					<li><a href="<?=user_guide_url('helpers/utility_helper')?>">Utility helper</a></li>

@@ -35,4 +35,12 @@ $(function(){
 	if ($(window.location.hash).size()){
 		$(window.location.hash).next().slideDown('fast');
 	}
-})
+	
+	// keyboard shortcut for TOC
+	$(document).bind('keypress', function(e){ 
+		var code = (e.keyCode ? e.keyCode : e.which);
+		 if(code == 20) { //Control + Shift + T
+		   $('#toc_toggle').click();
+		 }
+		return false;
+	});})

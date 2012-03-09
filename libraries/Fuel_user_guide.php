@@ -40,7 +40,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									'use_nav' => TRUE,
 									'user_footer' => TRUE,
 									); // Default display options
-	public $valid_folders = array('libraries', 'helpers'); // valid folders for autom documentation
+	public $valid_folders = array('libraries', 'helpers', 'general'); // valid folders for autom documentation
 	protected $current_page;
 	protected $_examples = array();
 
@@ -372,11 +372,15 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 */
 	function generate_toc($folder = NULL, $module = NULL, $exclude = array(), $return_array = FALSE)
 	{
-		if (empty($module))
+		if ($this->page_segment(2) AND (empty($module) OR (!empty($module) AND !in_array($module, $this->valid_folders))))
 		{
 			$module = $this->page_segment(2);
 		}
-
+		else
+		{
+			$module = FUEL_FOLDER;
+		}
+		
 		// set variable defaults
 		$vars['libraries'] = NULL;
 		$vars['helpers'] = NULL;
@@ -510,13 +514,20 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		}
 		$exclude[] = 'index.html';
 		$files = directory_to_array($module_path.$folder, FALSE, $exclude, FALSE, TRUE);
-		
+
 		$return = array();
 		if (is_array($files))
 		{
 			foreach($files as $file)
 			{
-				$url = user_guide_url('modules/'.$module.'/'.strtolower($file));
+				if ($module != FUEL_FOLDER)
+				{
+					$url = user_guide_url('modules/'.$module.'/'.strtolower($file));
+				}
+				else
+				{
+					$url = user_guide_url(strtolower($file));
+				}
 				$return[$url] = humanize($file);
 			}
 		}

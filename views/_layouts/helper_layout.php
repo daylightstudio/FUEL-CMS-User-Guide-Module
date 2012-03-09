@@ -1,7 +1,9 @@
 <?php if (!empty($helper)) : ?>
 
 <h1><?=$helper?></h1>
-<?php if (isset($comments[1]) AND $comments[1]->tags('package')) : ?>
+<?php if (isset($comments[1]) AND $comments[1]->tags('package')) : 
+$comments[1]->add_filter($user_guide_links_func);
+?>
 <p><?=$comments[1]->description(array('long'))?></p>
 <?php endif; ?>
 

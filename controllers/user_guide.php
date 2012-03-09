@@ -81,10 +81,29 @@ class User_guide extends Fuel_base_controller {
 				$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
 			}
 		}
-		else if ($this->fuel->user_guide->page_segment(1) == 'modules' AND $this->fuel->user_guide->page_segment(2))
+		else if (is_file(FUEL_PATH.'views/_docs/'.$this->current_page.EXT))
 		{
-			$module = $this->fuel->user_guide->page_segment(2);
-			$file = $this->fuel->user_guide->page_segment(3);
+			$vars['body'] = $this->load->module_view(FUEL_FOLDER, '_docs/'.$this->current_page, $vars, TRUE);
+			if ($this->fuel->user_guide->page_segment(2))
+			{
+				$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
+			}
+		}
+		else if ($this->fuel->user_guide->page_segment(2))
+		{
+			
+			if (in_array($this->fuel->user_guide->page_segment(1), $this->fuel->user_guide->valid_folders))
+			{
+				$module = FUEL_FOLDER;
+				$file = $this->fuel->user_guide->page_segment(2);
+				$uri_path_index = count(explode('/', $this->fuel->user_guide->config('root_url'))) - 2;
+				$module_view_path = '_docs/'.uri_path(FALSE, $uri_path_index);
+			}
+			else
+			{
+				$module = $this->fuel->user_guide->page_segment(2);
+				$file = $this->fuel->user_guide->page_segment(3);
+			}
 			
 			$body = '';
 
