@@ -1,22 +1,24 @@
-<h1>Parsing Overview</h1>
+<h1>Parsing</h1>
+
+<h2>Overview</h2>
 <p>By default, FUEL disables PHP code from being saved in your module data 
 (you must change the <a href="<?=user_guide_url('modules/simple')?>">sanitize_input</a> setting for the module).
 FUEL has implemented the <a href="http://dwoo.org/" target="_blank">Dwoo</a> PHP 5 based templating system.
 </p>
 
-<h2>MY_Parser</h2>
+<h3>MY_Parser</h3>
 <p>FUEL overwrites the default CodeIgniter Parser library with the <a href="<?=user_guide_url('libraries/my_parser')?>">MY_Parser</a> 
 library to implement the expanded Dwoo templating syntax.</p>
 
 
-<h2>String Helper Functions</h2>
+<h3>String Helper Functions</h3>
 <p>FUEL comes with the following <a href="<?=user_guide_url('helpers/my_string_helper')?>">string helper functions</a> to help with parsing and converting from the Dwoo templating syntax:</p>
 <ul>
 	<li>php_to_template_syntax - Convert PHP syntax to <a href="http://dwoo.org" target="_blank">Dwoo templating syntax</a>. Must use the PHP alternative syntax for if and foreach loops to be translated correctly.</li>
 	<li>parse_template_syntax - Parses a strings <a href="http://dwoo.org" target="_blank">Dwoo templating syntax</a>.</li>
 </ul>
 
-<h2>Non-Namespaced Functions</h2>
+<h3>Non-Namespaced Functions</h3>
 <p>The following are non-namespaced functions that can be used in your application and will be translated by the templating system.</p>
 <ul>
 	<li>{site_url('/my/path/')}</li>
@@ -31,7 +33,7 @@ library to implement the expanded Dwoo templating syntax.</p>
 	<li>{show_404} - Maps to the <a href="http://codeigniter.com/user_guide/general/errors.html" target="_blank">show_404()</a> function.</li>
 </ul>
 
-<h2>Namespaced Functions</h2>
+<h3>Namespaced Functions</h3>
 <p>The following are namespaced functions that can be used in your application and will be translated by the templating system.</p>
 
 <ul>
@@ -44,7 +46,7 @@ library to implement the expanded Dwoo templating syntax.</p>
 </ul>
 <p class="important">Note that several of the functions require an associative array paramter with the <dfn>key="val"</dfn> syntax.</p>
 
-<h2>Blocks</h2>
+<h3>Blocks</h3>
 <p>Tag pairs allow you to loop through arrays of data. The syntax requires an opening <dfn>{my_var}</dfn> and closing <dfn>{/my_var}</dfn> tag. 
 For example:</p>
 
@@ -70,7 +72,7 @@ $my_data = $this->user_model->find_all();
 
 <p class="important">The <dfn>user</dfn> part can actually be any value. You cannot insert outside variables inside a tag pair block.</p>
 
-<h2>Conditional Statements</h2>
+<h3>Conditional Statements</h3>
 <p>FUEL also allows for php like conditional statements to be inserted into the view using <dfn>{if ... }</dfn>, <dfn>{elseif ...}</dfn> and <dfn>{/if}</dfn>.
 For example:
 </p>
@@ -83,16 +85,16 @@ I am your father.
 </pre>
 
 
-<h2>Creating your own tags</h2>
+<h3>Creating your own tags</h3>
 <p><a href="http://wiki.dwoo.org/index.php/WritingPlugins" target="_blank">Dwoo provides several ways for it to extend it's templating syntax through plugins</a>. 
 The Dwoo folder to add your plugins is located at <dfn>application/libraries/dwoo/plugins</dfn>.
 </p>
 
 
-<h1>Parsing Examples</h1>
+<h2>Examples</h2>
 <p>Below are examples of FUEL's supported parsing syntax. For even more information, visit the <a href="http://wiki.dwoo.org/index.php/Main_Page" target="_blank">Dwoo Wiki</a></p>
 
-<h2>Scalar Variable Merge</h2>
+<h3 class="noline">Scalar Variable Merge</h3>
 
 <pre class="brush:php">
 $var['name'] = 'Luke';
@@ -102,7 +104,7 @@ $parsed_str = $this->parser->parse_string($str, $var);
 </pre>
 
 
-<h2>Array Variable Merge</h2>
+<h3 class="noline">Array Variable Merge</h3>
 <pre class="brush:php">
 $var['darths_kiddos'] = array();
 $var['darths_kiddos'][] = array('name' => 'Luke Skywalker', 'relationship' => 'son');
@@ -117,7 +119,7 @@ $parsed_str = $this->parser->parse_string($str, $var);
 </pre>
 
 
-<h2>Object Merge</h2>
+<h3 class="noline">Object Merge</h3>
 <pre class="brush:php">
 $this->load->model('users_model');
 $data['users'] = $this->users_model->find_by_key(1);
@@ -127,13 +129,13 @@ echo $test; //'Darth Vader';
 </pre>
 
 
-<h2>Array of Objects Merge</h2>
+<h3 class="noline">Array of Objects Merge</h3>
 <pre class="brush:php">
 $this->load->model('users_model');
 $data['users'] = $this->users_model->find_all();
 $str = '
 {loop $users}
-<h2>{$user->first_name} {$user->last_name}</h2>
+<h3>{$user->first_name} {$user->last_name}</h3>
 {$user->get_bio_formatted()}
 {/loop}';
 
@@ -141,7 +143,7 @@ $parsed_str = $this->parser->parse_string($str, $data);
 </pre>
 
 
-<h2>Conditionals</h2>
+<h3 class="noline">Conditionals</h3>
 <pre class="brush:php">
 {if 1 + 1 == 2}
 One plus one equals 2!
