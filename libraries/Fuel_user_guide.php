@@ -372,7 +372,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 */
 	function generate_toc($folder = NULL, $module = NULL, $exclude = array(), $return_array = FALSE)
 	{
-		if ($this->page_segment(2) AND (empty($module) OR (!empty($module) AND !in_array($module, $this->valid_folders))))
+		if ($this->page_segment(2) AND empty($module))
 		{
 			$module = $this->page_segment(2);
 		}

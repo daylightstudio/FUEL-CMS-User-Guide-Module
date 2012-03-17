@@ -44,13 +44,13 @@
 				<ul>
 					<li><a href="<?=user_guide_url('general/what-is-fuel')?>">What is FUEL CMS?</a></li>
 					<li><a href="<?=user_guide_url('general/interface')?>">Interface</a></li>
-					<li>Dashboards</li>
-					<li>Pages/Views</li>
-					<li>Layouts</li>
-					<li>Variables</li>
-					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
-					<li>Navigation</li>
-					<li>Blocks</li>
+					<li><a href="<?=user_guide_url('general/fuel-object-structure')?>">The FUEL Object Structure</a></li>
+					<li><a href="<?=user_guide_url('general/constants')?>">FUEL constants</a></li>
+					<li><a href="<?=user_guide_url('general/dashboards')?>">Dashboards</a></li>
+					<li><a href="<?=user_guide_url('general/layouts')?>">Layouts</a></li>
+					<li><a href="<?=user_guide_url('general/pages-variables')?>">Pages &amp; Variables</a></li>
+					<li><a href="<?=user_guide_url('general/navigation')?>">Navigation</li>
+					<li><a href="<?=user_guide_url('general/blocks')?>">Blocks</a></li>
 					<li>Assets</li>
 					<li>User Management</li>
 					<li>Modules</li>
@@ -59,14 +59,17 @@
 					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
 					<li><a href="<?=user_guide_url('general/hooks')?>">Hooks</a></li>
 					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
-					<li>Javascript</li>
-					
+					<li><a href="<?=user_guide_url('general/javascript')?>">Javascript</a></li>
+					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
+					<li>Extending FUEL</li>
 					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
 					<li><a href="<?=user_guide_url('general/security')?>">Security</a></li>
 					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
 					<li><a href="#">What's New In FUEL CMS 1.0</a></li>
 				</ul>
 
+			</td>
+			<td class="td_sep">
 				
 				<h2>Modules</h2>
 				<ul>
@@ -87,16 +90,6 @@
 				</ul>
 				<?php endif; ?>
 				
-				<h2>View Parsing</h2>
-				<ul>
-					<li><a href="<?=user_guide_url('parsing')?>">Parsing Overview</a></li>
-					<li><a href="<?=user_guide_url('parsing/parsing_examples')?>">Parsing Examples</a></li>
-				</ul>
-
-				<h2>Javascript</h2>
-				<ul>
-					<li><a href="<?=user_guide_url('javascript/jqx')?>">jQX Framework</a></li>
-				</ul>
 				
 			</td>
 			<td class="td_sep">
@@ -136,7 +129,6 @@
 					<li><a href="<?=user_guide_url('libraries/menu')?>">Menu Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/validator')?>">Validator Class</a></li>
 				</ul>
-				<?=generate_toc('libraries', 'fuel');?>
 
 				<h3>Abstract FUEL Classes Reference</h3>
 				<ul>
@@ -148,7 +140,6 @@
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/modular_extensions')?>">Modular Extensions - HMVC Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/cache')?>">Cache Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/template')?>">Template Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/simplepie')?>">Simplepie Class</a></li>
 				</ul>
 				
