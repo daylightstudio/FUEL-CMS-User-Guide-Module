@@ -51,8 +51,8 @@ class User_guide extends Fuel_base_controller {
 		$vars = array();
 		
 		// get modules
-		$modules = array('', 'fuel');
-		$modules = array_merge($modules, $this->config->item('modules_allowed', 'fuel'));
+		//$modules = array('', 'fuel');
+		$modules = $this->fuel->config('modules_allowed');
 		$vars = $this->fuel->user_guide->get_vars($this->current_page);
 		
 		foreach($modules as $m)

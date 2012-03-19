@@ -7,10 +7,12 @@ $comments[1]->add_filter($user_guide_links_func);
 <p><?=$comments[1]->description(array('long'))?></p>
 <?php endif; ?>
 
-<h2>Function Reference</h2>
+<h2>Function Reference [<a href="#" class="func_toggle">+</a>]</h2>
 <?php 
 foreach($helpers as $function => $function_obj) :
 	$comment = $function_obj->comment;
+	$comment_params = $comment->tags('param', 'type');
+	$parameters = $function_obj->params();
 	$comment->add_filter($user_guide_links_func);
 	$example = $comment->example();
 	$description = $comment->description(array('periods', 'one_line', 'markdown'));
@@ -18,11 +20,18 @@ foreach($helpers as $function => $function_obj) :
 ?>
 
 <?=$this->fuel->user_guide->block('function', array('function' => $function_obj)) ?> 
+
+<div class="func">
 <?=$description?>
 
-<?=$this->fuel->user_guide->block('params', array('comment' => $comment)) ?>
+<?=user_guide_block('return', array('return' => $comment_return)) ?>
 
-<?=$this->fuel->user_guide->block('example', array('example' => $example)) ?>
+<?=user_guide_block('params', array('params' => $parameters, 'comment_params' => $comment_params)) ?>
+
+<?=user_guide_block('example', array('example' => $example)) ?>
+
+</div>
+
 
 <?php endforeach; ?>
 
