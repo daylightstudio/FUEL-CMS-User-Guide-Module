@@ -16,6 +16,7 @@ foreach($helpers as $function => $function_obj) :
 	$comment->add_filter($user_guide_links_func);
 	$example = $comment->example();
 	$description = $comment->description(array('periods', 'one_line', 'markdown'));
+	$comment_return = $comment->tags('return');
 
 ?>
 

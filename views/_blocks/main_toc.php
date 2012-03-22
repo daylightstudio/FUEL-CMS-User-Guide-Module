@@ -29,6 +29,14 @@
 					<li><a href="<?=user_guide_url('general/configuration')?>">Configuring FUEL CMS</a></li>
 				</ul>
 				
+				<h3>Introduction</h3>
+				<ul>
+					<li><a href="<?=user_guide_url('general/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
+					<li><a href="<?=user_guide_url('general/interface')?>">The CMS Interface</a></li>
+					<li><a href="<?=user_guide_url('general/fuel-object-structure')?>">The FUEL Object Structure</a></li>
+					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
+				</ul>
+				
 				<h3>Additional Resources</h3>
 				<ul>
 					<li><a href="http://www.getfuelcms.com/blog">FUEL CMS's Blog</a></li>
@@ -39,35 +47,29 @@
 			</td>
 			<td class="td_sep">
 				
-				<h3>Introduction</h3>
-				<ul>
-					<li><a href="<?=user_guide_url('general/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
-					<li><a href="<?=user_guide_url('general/interface')?>">The CMS Interface</a></li>
-					<li><a href="<?=user_guide_url('general/fuel-object-structure')?>">The FUEL Object Structure</a></li>
-					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
-				</ul>
-				
 				<h3>General Topics</h3>
 				<ul>
-					<li><a href="<?=user_guide_url('general/dashboards')?>">Dashboards</a></li>
-					<li><a href="<?=user_guide_url('general/layouts')?>">Layouts</a></li>
+					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
 					<li><a href="<?=user_guide_url('general/pages-variables')?>">Pages &amp; Variables</a></li>
+					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
+					<li><a href="<?=user_guide_url('general/layouts')?>">Layouts</a></li>
 					<li><a href="<?=user_guide_url('general/navigation')?>">Navigation</li>
 					<li><a href="<?=user_guide_url('general/blocks')?>">Blocks</a></li>
 					<li><a href="<?=user_guide_url('general/assets')?>">Assets</a></li>
 					<li><a href="<?=user_guide_url('general/user-management')?>">User Management</a></li>
 					<li><a href="<?=user_guide_url('general/models')?>">Models</a></li>
 					<li><a href="<?=user_guide_url('general/forms')?>">Forms</a></li>
-					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
 					<li><a href="<?=user_guide_url('general/hooks')?>">Hooks</a></li>
+					<li><a href="<?=user_guide_url('general/dashboards')?>">Dashboards</a></li>
 					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
 					<li><a href="<?=user_guide_url('general/javascript')?>">Javascript</a></li>
-					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
+					<li><a href="<?=user_guide_url('general/caching')?>">Caching</a></li>
 					<li><a href="<?=user_guide_url('general/security')?>">Security</a></li>
 					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
-					<li><a href="<?=user_guide_url('general/caching')?>">Caching</a></li>
 					<li><a href="<?=user_guide_url('general/constants')?>">FUEL constants</a></li>
 					<li><a href="<?=user_guide_url('general/extending')?>">Extending FUEL</a></li>
+					<li><a href="<?=user_guide_url('general/testing')?>">Testing</a></li>
+					<li><a href="<?=user_guide_url('general/creating-documentation')?>">Creating Documentation</a></li>
 				</ul>
 			</td>
 			<td class="td_sep">
@@ -91,6 +93,7 @@
 					<li><a href="<?=user_guide_url('libraries/fuel_pages')?>">Fuel Pages Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_pagevars')?>">Fuel Pagevars Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_permissions')?>">Fuel Permissions Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/fuel_redirects')?>">Fuel Redirects Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_sitevars')?>">Fuel Sitevars Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_users')?>">Fuel Users Class</a></li>
 				</ul>
@@ -101,9 +104,9 @@
 				<h3>General Classes</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/asset')?>">Asset Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/data_table')?>">Data_table Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/data_table')?>">Data Table Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/form')?>">Form Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/form_builder')?>">Form_builder Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/form_builder')?>">Form Builder Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/menu')?>">Menu Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/validator')?>">Validator Class</a></li>
 				</ul>
@@ -175,15 +178,20 @@
 					<li><a href="<?=user_guide_url('modules/simple')?>">Simple Modules</a></li>
 					<li><a href="<?=user_guide_url('modules/advanced')?>">Advanced Modules</a></li>
 					<li><a href="<?=user_guide_url('modules/tutorial')?>">Creating Modules</a></li>
-					<li><a href="<?=user_guide_url('modules/forms')?>">Module Forms</a></li>
 					<li><a href="<?=user_guide_url('modules/hooks')?>">Module Hooks</a></li>
+					<li><a href="<?=user_guide_url('modules/tools')?>">Module Tools</a></li>
+					<li><a href="<?=user_guide_url('modules/dashboards')?>">Module Dashboards</a></li>
+					<li><a href="<?=user_guide_url('modules/testing')?>">Module Testing</a></li>
+					<li><a href="<?=user_guide_url('modules/creating-documentation')?>">Creating Module Documentation</a></li>
 				</ul>
 
 				<?php if (!empty($modules)) : ?>
-				<h3>Specific Module Reference</h3>
+				<h3>Advanced Module References</h3>
 				<ul>
 				<?php foreach($modules as $uri => $module) : ?>
+					<?php if ($uri != 'fuel'): ?>
 					<li><a href="<?=user_guide_url('modules/'.$uri)?>"><?=$module?></a></li>
+					<?php endif; ?>
 				<?php endforeach; ?>
 				</ul>
 				<?php endif; ?>
