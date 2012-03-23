@@ -110,9 +110,11 @@
 				<h3>General Classes</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/asset')?>">Asset Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/curl')?>">Curl Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/data_table')?>">Data Table Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/form')?>">Form Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/form_builder')?>">Form Builder Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/inspection')?>">Inspection Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/menu')?>">Menu Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/validator')?>">Validator Class</a></li>
 				</ul>
