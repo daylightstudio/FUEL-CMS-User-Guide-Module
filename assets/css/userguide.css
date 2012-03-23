@@ -12,8 +12,8 @@ a:hover { color: #000; text-decoration: none; background-color: transparent; }
 #nav_inner .td_sep { background: transparent url(../images/nav_separator_darker.jpg) repeat-y left top; width: 25%; padding: 0 0 0 20px; }
 #nav_inner .td { width: 25%; }
 #nav_inner p { color: #eee; background-color: transparent; padding:0; margin: 0 0 10px 0; }
-#nav_inner ul { list-style-image: url(../images/arrow.gif); padding: 0 0 0 18px; margin: 8px 0 12px 0; }
-#nav_inner li { padding: 0; margin: 0 0 4px 0; }
+#nav_inner ul { list-style-image: url(../images/arrow.gif); padding: 0 0 0 18px; margin: 5px 0 12px 0; }
+#nav_inner li { padding: 0; margin: 0 0 2px 0; }
 #nav_inner a { color: #eee; background-color: transparent; text-decoration: none; font-weight: normal; }
 #nav_inner a:visited { color: #eee; background-color: transparent; text-decoration: none; }
 #nav_inner a:hover { color: #ccc; text-decoration: none; background-color: transparent; }

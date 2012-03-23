@@ -127,10 +127,19 @@ class User_guide extends Fuel_base_controller {
 					}
 					
 					$file_path = MODULES_PATH.$module.'/'.$folder.'/'.$file_name.EXT;
-
 					if (file_exists($file_path))
 					{
 						$body = $this->fuel->user_guide->generate_docs($file_name, $folder, $module, array());
+					}
+					else
+					{
+						$file_path = APPPATH.'/'.$folder.'/'.$file_name.EXT;
+						
+						if (file_exists($file_path))
+						{
+							$body = $this->fuel->user_guide->generate_docs($file_name, $folder, $module, array());
+						}
+						
 					}
 				}
 			}
@@ -142,7 +151,10 @@ class User_guide extends Fuel_base_controller {
 				{
 					if (isset($vars['modules'][$module]))
 					{
-						$vars['sections'] = array($vars['modules'][$module] => 'modules/'.$module);
+						if ($module != FUEL_FOLDER)
+						{
+							$vars['sections'] = array($vars['modules'][$module] => 'modules/'.$module);
+						}
 					}
 					else
 					{

@@ -31,10 +31,10 @@
 				
 				<h3>Introduction</h3>
 				<ul>
-					<li><a href="<?=user_guide_url('general/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
-					<li><a href="<?=user_guide_url('general/interface')?>">The CMS Interface</a></li>
-					<li><a href="<?=user_guide_url('general/fuel-object-structure')?>">The FUEL Object Structure</a></li>
-					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
+					<li><a href="<?=user_guide_url('introduction/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
+					<li><a href="<?=user_guide_url('introduction/interface')?>">The CMS Interface</a></li>
+					<li><a href="<?=user_guide_url('introduction/fuel-object-structure')?>">The FUEL Object Structure</a></li>
+					<li><a href="<?=user_guide_url('introduction/opt-in-controllers')?>">Opt-in Controller Development</a></li>
 				</ul>
 				
 				<h3>Additional Resources</h3>
@@ -53,7 +53,7 @@
 					<li><a href="<?=user_guide_url('general/pages-variables')?>">Pages &amp; Variables</a></li>
 					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
 					<li><a href="<?=user_guide_url('general/layouts')?>">Layouts</a></li>
-					<li><a href="<?=user_guide_url('general/navigation')?>">Navigation</li>
+					<li><a href="<?=user_guide_url('general/navigation')?>">Navigation</a></li>
 					<li><a href="<?=user_guide_url('general/blocks')?>">Blocks</a></li>
 					<li><a href="<?=user_guide_url('general/assets')?>">Assets</a></li>
 					<li><a href="<?=user_guide_url('general/user-management')?>">User Management</a></li>
@@ -101,6 +101,12 @@
 
 			</td>
 			<td class="td_sep">
+				<h3>Abstract FUEL Classes</h3>
+				<ul>
+					<li><a href="<?=user_guide_url('libraries/my_model')?>">MY_Model Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/base_module_model')?>">Base_module_model Class</a></li>
+				</ul>
+				
 				<h3>General Classes</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/asset')?>">Asset Class</a></li>
@@ -111,12 +117,6 @@
 					<li><a href="<?=user_guide_url('libraries/validator')?>">Validator Class</a></li>
 				</ul>
 
-				<h3>Abstract FUEL Classes</h3>
-				<ul>
-					<li><a href="<?=user_guide_url('libraries/my_model')?>">MY_Model Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/base_module_model')?>">Base_module_model Class</a></li>
-				</ul>
-				
 				<h3>3rd Party Classes</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/modular_extensions')?>">Modular Extensions - HMVC Class</a></li>

@@ -319,10 +319,17 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			$file = ucfirst($file);
 		}
+		// bring in examples if they exist
+		$valid_app_names = array('app', 'application');
+		$examples_path = MODULES_PATH.$module.'/views/_docs/examples/'.strtolower($file).'_examples'.EXT;
 		$class_path = MODULES_PATH.$module.'/'.$folder.'/'.$file.EXT;
 		
-		// bring in examples if they exist
-		$examples_path = MODULES_PATH.$module.'/views/_docs/examples/'.strtolower($file).'_examples'.EXT;
+		if ((!file_exists($class_path) AND !in_array($module, $valid_app_names)) OR in_array($module, $valid_app_names))
+		{
+			$examples_path = APPPATH.'views/_docs/examples/'.strtolower($file).'_examples'.EXT;
+			$class_path = APPPATH.$folder.'/'.$file.EXT;
+		}
+		
 		$examples = array();
 		if (file_exists($examples_path))
 		{
