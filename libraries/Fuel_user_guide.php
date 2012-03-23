@@ -360,7 +360,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 				break;
 			default:
 				$layout = 'class_layout';
-				$vars['class'] = $this->CI->inspection->classes($file);
+				$vars['classes'] = $this->CI->inspection->classes();
 		}
 		return $this->load_view('_layouts/'.$layout, $vars, TRUE);
 	}
@@ -446,9 +446,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$config = array();
 		if (!empty($file))
 		{
-			// preg_match_all("#//(.+)\$config\[['|\"]".$module."\\2\]\[(['|\"])(.+)\\3\]\s*=\s*(.+)#ms", $file, $matches);
-			preg_match_all("#^//(.+);#Ums", $file, $matches);
-			
+			preg_match_all("#^//([^\-]+);#Ums", $file, $matches);
 			if (isset($matches[1]))
 			{
 				foreach($matches[1] as $match)
@@ -456,18 +454,33 @@ class Fuel_user_guide extends Fuel_advanced_module {
 					// remove any extra comment slashes
 					$match = str_replace('//', '', $match);
 					$match = trim_multiline($match);
-					preg_match('#\$config\[([\'|"])'.$module.'\\1\]\[([\'|"])(.+)\\2\]\s*=\s*(.+)#ms', $match, $key_arr);
-					if (isset($key_arr[3]) AND isset($key_arr[4]))
+					
+					// FUEL config doesn't use the prefix key
+					$key1 = 3;
+					$key2 = 4;
+					if ($module == FUEL_FOLDER)
 					{
-						$key = $key_arr[3];
+						preg_match('#\$config\[([\'|"])(.+)\\1\]\s*=\s*(.+)#ms', $match, $key_arr);
+						$key1 = 2;
+						$key2 = 3;
+					}
+					else
+					{
+						preg_match('#\$config\[([\'|"])'.$module.'\\1\]\[([\'|"])(.+)\\2\]\s*=\s*(.+)#ms', $match, $key_arr);
+					}
+
+					if (isset($key_arr[$key1]) AND isset($key_arr[$key2]))
+					{
+						$key = $key_arr[$key1];
 						$comment = current(explode('$config', $match));
-						$default = '<pre>'.$key_arr[4].'</pre>';
+						$default = '<pre>'.$key_arr[$key2].'</pre>';
 						$c = new stdClass();
 						$c->param = $key;
 						$c->comment  = $comment;
 						$c->default_value = $default;
 						$config[$key] = $c;
 					}
+					
 				}
 			}
 		}

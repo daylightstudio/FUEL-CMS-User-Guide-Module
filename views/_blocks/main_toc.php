@@ -23,15 +23,16 @@
 
 				<h3>Installation</h3>
 				<ul>
-					<li><a href="<?=user_guide_url('general/installing')?>">Installing FUEL CMS</a></li>
-					<li><a href="<?=user_guide_url('general/requirements')?>">Server Requirements</a></li>
-					<li><a href="<?=user_guide_url('general/troubleshooting')?>">Troubleshooting</a></li>
-					<li><a href="<?=user_guide_url('general/configuration')?>">Configuring FUEL CMS</a></li>
+					<li><a href="<?=user_guide_url('installation/installing')?>">Installing FUEL CMS</a></li>
+					<li><a href="<?=user_guide_url('installation/requirements')?>">Server Requirements</a></li>
+					<li><a href="<?=user_guide_url('installation/troubleshooting')?>">Troubleshooting</a></li>
+					<li><a href="<?=user_guide_url('installation/configuration')?>">Configuring FUEL CMS</a></li>
 				</ul>
 				
 				<h3>Introduction</h3>
 				<ul>
 					<li><a href="<?=user_guide_url('introduction/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
+					<li><a href="<?=user_guide_url('introduction/demo-site')?>">The Demo Site</a></li>
 					<li><a href="<?=user_guide_url('introduction/interface')?>">The CMS Interface</a></li>
 					<li><a href="<?=user_guide_url('introduction/fuel-object-structure')?>">The FUEL Object Structure</a></li>
 					<li><a href="<?=user_guide_url('introduction/opt-in-controllers')?>">Opt-in Controller Development</a></li>
@@ -59,7 +60,6 @@
 					<li><a href="<?=user_guide_url('general/user-management')?>">User Management</a></li>
 					<li><a href="<?=user_guide_url('general/models')?>">Models</a></li>
 					<li><a href="<?=user_guide_url('general/forms')?>">Forms</a></li>
-					<li><a href="<?=user_guide_url('general/hooks')?>">Hooks</a></li>
 					<li><a href="<?=user_guide_url('general/dashboards')?>">Dashboards</a></li>
 					<li><a href="<?=user_guide_url('general/redirects')?>">Redirects</a></li>
 					<li><a href="<?=user_guide_url('general/javascript')?>">Javascript</a></li>
@@ -84,7 +84,6 @@
 					<li><a href="<?=user_guide_url('libraries/fuel_base_library')?>">Fuel Base Library Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_blocks')?>">Fuel Blocks Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_cache')?>">Fuel Cache Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/fuel_custom_fields')?>">Fuel Custom Fields Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_layouts')?>">Fuel Layouts Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_logs')?>">Fuel Logs Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/fuel_modules')?>">Fuel Modules Class</a></li>
@@ -182,7 +181,6 @@
 					<li><a href="<?=user_guide_url('modules/tutorial')?>">Creating Modules</a></li>
 					<li><a href="<?=user_guide_url('modules/hooks')?>">Module Hooks</a></li>
 					<li><a href="<?=user_guide_url('modules/tools')?>">Module Tools</a></li>
-					<li><a href="<?=user_guide_url('modules/dashboards')?>">Module Dashboards</a></li>
 					<li><a href="<?=user_guide_url('modules/testing')?>">Module Testing</a></li>
 					<li><a href="<?=user_guide_url('modules/creating-documentation')?>">Creating Module Documentation</a></li>
 				</ul>

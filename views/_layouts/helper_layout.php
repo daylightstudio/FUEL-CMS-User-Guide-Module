@@ -1,5 +1,5 @@
 <?php if (!empty($helper)) : ?>
-
+<?php if (isset($comments[1]) AND strtoupper($comments[1]->tags('autodoc')) != 'FALSE') :?>
 <h1><?=$helper?></h1>
 <?php if (isset($comments[1]) AND $comments[1]->tags('package')) : 
 $comments[1]->add_filter($user_guide_links_func);
@@ -35,5 +35,5 @@ foreach($helpers as $function => $function_obj) :
 
 
 <?php endforeach; ?>
-
+<?php endif; ?>
 <?php endif; ?>
