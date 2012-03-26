@@ -11,7 +11,6 @@
  * @copyright	Copyright (c) 2011, Run for Daylight LLC.
  * @license		http://www.getfuelcms.com/user_guide/general/license
  * @link		http://www.getfuelcms.com
- * @filesource
  */
 
 // ------------------------------------------------------------------------
@@ -35,7 +34,7 @@
  * Convenience function to easily create user guide urls
  * 
  * <code>
- * echo user_guide_url('libraries/assets);
+ * echo user_guide_url('libraries/assets');
  * </code>
  *
  * @access	public

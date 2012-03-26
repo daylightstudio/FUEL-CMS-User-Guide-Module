@@ -53,6 +53,7 @@
 					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
 					<li><a href="<?=user_guide_url('general/pages-variables')?>">Pages &amp; Variables</a></li>
 					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>
+					<li><a href="<?=user_guide_url('general/views')?>">Views</a></li>
 					<li><a href="<?=user_guide_url('general/layouts')?>">Layouts</a></li>
 					<li><a href="<?=user_guide_url('general/navigation')?>">Navigation</a></li>
 					<li><a href="<?=user_guide_url('general/blocks')?>">Blocks</a></li>
@@ -181,8 +182,6 @@
 					<li><a href="<?=user_guide_url('modules/tutorial')?>">Creating Modules</a></li>
 					<li><a href="<?=user_guide_url('modules/hooks')?>">Module Hooks</a></li>
 					<li><a href="<?=user_guide_url('modules/tools')?>">Module Tools</a></li>
-					<li><a href="<?=user_guide_url('modules/testing')?>">Module Testing</a></li>
-					<li><a href="<?=user_guide_url('modules/creating-documentation')?>">Creating Module Documentation</a></li>
 				</ul>
 
 				<?php if (!empty($modules)) : ?>
