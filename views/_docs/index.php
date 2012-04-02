@@ -27,4 +27,6 @@ creating a <a href="<?=user_guide_url('modules/user_guide/user_guide_helper#gene
 
 <p class="important"><strong>Where is the file?</strong> If you are looking for a user guide file and can't find it, chances are it is being automatically generated so you may want to check the source file and it's comments.</p>
 
+<?=generate_config_info()?>
+
 <?=generate_toc();?>

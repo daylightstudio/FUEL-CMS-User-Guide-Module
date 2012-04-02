@@ -372,7 +372,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 * Returns a table of contents for your documentation
 	 * 
 	 * @access	public
-	 * @param	stirng	The name of the module to generate the table of contents. If no module is provided, it will look at the current URI path (optional)
+	 * @param	stirng	The name of the folder to generate the table of contents. If no folder is provided, it will look in the libraries, helpers and models folders
 	 * @param	string	Module folder name (optional)
 	 * @param	array	An array of files to exclude from the list (optional)
 	 * @param	boolean	Whether to return an array of values or a view (optional)
@@ -384,7 +384,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			$module = $this->page_segment(2);
 		}
-		else
+		else if (empty($module))
 		{
 			$module = FUEL_FOLDER;
 		}
@@ -410,11 +410,11 @@ class Fuel_user_guide extends Fuel_advanced_module {
 			$libraries = $this->folder_files('libraries', $module,  $exclude);
 			$vars['libraries'] = $libraries;
 
-			$helpers = $this->folder_files('helpers',$module, $exclude);
+			$helpers = $this->folder_files('helpers', $module, $exclude);
 			$vars['helpers'] = $helpers;
 
-			$models = $this->folder_files('models',$module, $exclude);
-			$vars['models'] = $helpers;
+			$models = $this->folder_files('models', $module, $exclude);
+			$vars['models'] = $models;
 		}
 
 		if ($return_array === TRUE)

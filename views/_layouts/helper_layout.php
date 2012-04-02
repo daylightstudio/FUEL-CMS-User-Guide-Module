@@ -22,7 +22,7 @@ foreach($helpers as $function => $function_obj) :
 
 <?=$this->fuel->user_guide->block('function', array('function' => $function_obj)) ?> 
 
-<div class="func">
+<div class="toggle_block">
 <?=$description?>
 
 <?=user_guide_block('return', array('return' => $comment_return)) ?>

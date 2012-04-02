@@ -69,8 +69,6 @@
 					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
 					<li><a href="<?=user_guide_url('general/constants')?>">FUEL constants</a></li>
 					<li><a href="<?=user_guide_url('general/extending')?>">Extending FUEL</a></li>
-					<li><a href="<?=user_guide_url('general/testing')?>">Testing</a></li>
-					<li><a href="<?=user_guide_url('general/creating-documentation')?>">Creating Documentation</a></li>
 				</ul>
 			</td>
 			<td class="td_sep">
