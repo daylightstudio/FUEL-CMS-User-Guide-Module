@@ -17,6 +17,11 @@ if (strtoupper($comment->tags('autodoc')) != 'FALSE') :
 <?php
 $comment->add_filter($user_guide_links_func);
 echo $comment->description(array('long', 'periods', 'markdown'));
+
+$example = $comment->example();
+if ($example) :
+	echo user_guide_block('example', array('example' => $example));
+endif;
 ?>
 <?php if ($class->parent()) : ?>
 <p>This class extends the <a href="<?=user_guide_url('modules/'.$module.'/'.strtolower($class->parent()))?>"><?=$class->parent()?></a> class.</p>

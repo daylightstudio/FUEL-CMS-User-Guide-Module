@@ -7,27 +7,29 @@
 
 <?=css('userguide, fuel_override, shCore, shThemeDefault', 'user_guide')?>
 
-<?=js('jquery')?>
-<?=js('user_guide', 'user_guide')?>
-<?=js('shCore, shBrushSql, shBrushCss, shBrushJScript, shBrushPhp','user_guide')?>
-
 <meta http-equiv='expires' content='-1' />
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
+<?=js('jquery/jquery', 'fuel')?>
+<?=js('user_guide', 'user_guide')?>
+<?=js('shCore, shBrushSql, shBrushXml, shBrushCss, shBrushJScript, shBrushPhp','user_guide')?>
+
 
 </head>
 <body>
 
 <?php if ($use_nav) : ?>
 <!-- START NAVIGATION -->
-<div id="nav" style="display: none;">
-	<div id="nav_inner">
+<div id="nav_container">
+	<div id="nav" style="display: none;">
+		<div id="nav_inner">
 		
-	<?php $this->load->module_view(USER_GUIDE_FOLDER, '_blocks/main_toc')?>
+		<?php $this->load->module_view(USER_GUIDE_FOLDER, '_blocks/main_toc')?>
 		
+		</div>
 	</div>
+	<div id="nav2"><a name="top"></a><a href="#" id="toc_toggle" title="Shift + Spacebar to toggle display">Table of Content</a></div>
 </div>
-<div id="nav2"><a name="top"></a><a href="#" id="toc_toggle" title="Shift + Spacebar to toggle display">Table of Content</a></div>
 <div id="masthead">
 	<h1>FUEL CMS  User Guide : Version <?=FUEL_VERSION?></h1>
 </div>

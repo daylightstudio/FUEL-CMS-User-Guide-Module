@@ -9,21 +9,21 @@ $(function(){
 		}
 	);
 
-	$('.func_toggle').toggle(
+	$('.toggler').toggle(
 		function(){
-			$('.func_name').next().slideDown('fast');
+			$('.toggle').next().slideDown('fast');
 			$(this).html('-');
 			return false;
 		},
 		function(){
-			$('.func_name').next().slideUp('fast');
+			$('.toggle').next().slideUp('fast');
 			$(this).html('+');
 			return false;
 		}
 	
 	)
 	
-	$('.func_name').css('cursor', 'pointer').toggle(
+	$('.toggle').css('cursor', 'pointer').toggle(
 		function(){
 			$(this).next().slideDown('fast');
 		},

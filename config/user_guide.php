@@ -18,6 +18,12 @@ $config['user_guide'] = array();
 // user guide requires user authentication to view
 $config['user_guide']['authenticate'] = TRUE;
 
+// determines whether to cache the user guide files or not
+$config['user_guide']['use_cache'] = FALSE;
+
+// determines whether to cache the user guide files or not
+$config['user_guide']['cache_path'] = USER_GUIDE_PATH.'cache/';
+
 // the URI path to the user guide
 $config['user_guide']['root_url'] = FUEL_ROUTE.'tools/user_guide/';
 

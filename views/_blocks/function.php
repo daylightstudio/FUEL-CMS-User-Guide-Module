@@ -24,4 +24,4 @@ if ($num_parameters)
 }
 ?>
 
-<h3 id="func_<?=strtolower($func_name)?>" class="func_name"><?=$prefix?><?=$func_name?>(<?=implode(', ', $params)  ?>)</h3>
+<h3 id="func_<?=strtolower($func_name)?>" class="toggle"><?=$prefix?><?=$func_name?>(<?=implode(', ', $params)  ?>)</h3>

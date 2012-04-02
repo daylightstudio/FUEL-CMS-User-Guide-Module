@@ -34,8 +34,6 @@
 					<li><a href="<?=user_guide_url('introduction/whats-new')?>">What's New In FUEL CMS 1.0</a></li>
 					<li><a href="<?=user_guide_url('introduction/demo-site')?>">The Demo Site</a></li>
 					<li><a href="<?=user_guide_url('introduction/interface')?>">The CMS Interface</a></li>
-					<li><a href="<?=user_guide_url('introduction/fuel-object-structure')?>">The FUEL Object Structure</a></li>
-					<li><a href="<?=user_guide_url('introduction/opt-in-controllers')?>">Opt-in Controller Development</a></li>
 				</ul>
 				
 				<h3>Additional Resources</h3>
@@ -50,6 +48,8 @@
 				
 				<h3>General Topics</h3>
 				<ul>
+					<li><a href="<?=user_guide_url('general/fuel-object-structure')?>">The FUEL Object Structure</a></li>
+					<li><a href="<?=user_guide_url('general/opt-in-controllers')?>">Opt-in Controller Development</a></li>
 					<li><a href="<?=user_guide_url('general/inline-editing')?>">Inline Editing</a></li>
 					<li><a href="<?=user_guide_url('general/pages-variables')?>">Pages &amp; Variables</a></li>
 					<li><a href="<?=user_guide_url('general/template-parsing')?>">Template Parsing</a></li>

@@ -40,7 +40,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									'use_nav' => TRUE,
 									'user_footer' => TRUE,
 									); // Default display options
-	public $valid_folders = array('libraries', 'helpers', 'general'); // valid folders for autom documentation
+	public $valid_folders = array('libraries', 'helpers', 'general', 'models'); // valid folders for autom documentation
 	protected $current_page;
 	protected $_examples = array();
 
@@ -319,6 +319,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			$file = ucfirst($file);
 		}
+		
 		// bring in examples if they exist
 		$valid_app_names = array('app', 'application');
 		$examples_path = MODULES_PATH.$module.'/views/_docs/examples/'.strtolower($file).'_examples'.EXT;
@@ -391,6 +392,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		// set variable defaults
 		$vars['libraries'] = NULL;
 		$vars['helpers'] = NULL;
+		$vars['models'] = NULL;
 		if (isset($vars[$folder]))
 		{
 			$vars[$folder] = NULL;
@@ -410,6 +412,9 @@ class Fuel_user_guide extends Fuel_advanced_module {
 
 			$helpers = $this->folder_files('helpers',$module, $exclude);
 			$vars['helpers'] = $helpers;
+
+			$models = $this->folder_files('models',$module, $exclude);
+			$vars['models'] = $helpers;
 		}
 
 		if ($return_array === TRUE)

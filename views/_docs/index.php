@@ -1,6 +1,6 @@
 <h1>User Guide Documentation</h1>
-<p>Yes... the User Guide, has it's own User Guide documentation. This is because the User Guide module is designed to make it easy for you to create your own documentation
-for your site and module development.</p>
+<p>Yes... the User Guide, has it's own User Guide documentation. This is because not only is it the main source of FUEL CMS documentation, but it also
+provides functionality for you to easily create and incorporate your own documentation.</p>
 
 <h2>Creating Site Documentation</h2>
 <p>Documentation specific for your site, should be placed in the <span class="file">fuel/application/views/_docs/index.php</span> folder. This will be accessible from the <a href="<?=user_guide_url('general/dashoard')?>">CMS dashboard</a> page.</p>
@@ -24,4 +24,7 @@ creating a <a href="<?=user_guide_url('modules/user_guide/user_guide_helper#gene
 </pre>
 
 <p class="important">For a class library's documentation to be automatically generated, the class cannot be abstract and must not require parameters to be passed to the constructor method.</p>
+
+<p class="important"><strong>Where is the file?</strong> If you are looking for a user guide file and can't find it, chances are it is being automatically generated so you may want to check the source file and it's comments.</p>
+
 <?=generate_toc();?>

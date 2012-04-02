@@ -1,4 +1,4 @@
-<h2>Function Reference [<a href="#" class="func_toggle">+</a>]</h2>
+<h2>Function Reference [<a href="#" class="toggler">+</a>]</h2>
 
 <?php 
 $class_name = $class->name;
@@ -17,7 +17,7 @@ foreach($class->methods() as $method => $method_obj) :
 	}
 ?>	
 <?=user_guide_block('function', array('function' => $method_obj, 'prefix' => '$this->'.$ci_obj_name.'->')) ?>
-<div class="func">
+<div class="toggle_block">
 <?=$description?>
 
 <?=user_guide_block('return', array('return' => $comment_return)) ?>
