@@ -7,6 +7,7 @@ $comments[1]->add_filter($user_guide_links_func);
 <p><?=$comments[1]->description(array('long'))?></p>
 <?php endif; ?>
 
+<div class="toggle_container">
 <h2>Function Reference [<a href="#" class="toggler">+</a>]</h2>
 <?php 
 foreach($helpers as $function => $function_obj) :
@@ -35,5 +36,6 @@ foreach($helpers as $function => $function_obj) :
 
 
 <?php endforeach; ?>
+</div>
 <?php endif; ?>
 <?php endif; ?>

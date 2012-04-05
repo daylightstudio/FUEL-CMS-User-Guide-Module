@@ -8,20 +8,23 @@ $(function(){
 			$('#nav').slideUp();
 		}
 	);
+	$('.toggle_container').each(function(i){
+		var _this = this;
+		$(this).find('.toggler').toggle(
+			function(){
+				$('.toggle', _this).next().slideDown('fast');
+				$(this).html('-');
+				return false;
+			},
+			function(){
+				$('.toggle', _this).next().slideUp('fast');
+				$(this).html('+');
+				return false;
+			}
 
-	$('.toggler').toggle(
-		function(){
-			$('.toggle').next().slideDown('fast');
-			$(this).html('-');
-			return false;
-		},
-		function(){
-			$('.toggle').next().slideUp('fast');
-			$(this).html('+');
-			return false;
-		}
+		)
+	})
 	
-	)
 	
 	$('.toggle').css('cursor', 'pointer').toggle(
 		function(){
@@ -41,6 +44,5 @@ $(function(){
 		 if(e.shiftKey === true && e.charCode == 32) { //Control + Shift + T
 		   $('#toc_toggle').click();
 		 }
-		//return false;
 	});
 })

@@ -131,6 +131,7 @@
 					<li><a href="<?=user_guide_url('libraries/my_model')?>">MY_Model Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/my_image_lib')?>">MY_Image_lib Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/my_parser')?>">MY_Parser Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/my_hooks')?>">MY_Hooks Class</a></li>
 				</ul>
 
 			</td>

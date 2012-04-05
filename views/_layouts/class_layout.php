@@ -13,6 +13,7 @@ $comment = $class->comment();
 
 if (strtoupper($comment->tags('autodoc')) != 'FALSE') :
 ?>
+<div class="toggle_container">
 <h1><?=$class->friendly_name()?> Class</h1>
 <?php
 $comment->add_filter($user_guide_links_func);
@@ -32,6 +33,7 @@ endif;
 <?=user_guide_block('function_list', array('class' => $class)) ?>
 
 <?php endif; ?>
+</div>
 <?php endif; ?>
 <br /><br />
 <?php endforeach; ?>

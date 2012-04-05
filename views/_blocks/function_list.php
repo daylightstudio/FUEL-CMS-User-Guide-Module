@@ -4,6 +4,7 @@
 $class_name = $class->name;
 foreach($class->methods() as $method => $method_obj) :
 	$comment = $method_obj->comment;
+	$comment->add_filter($user_guide_links_func);
 	$parameters = $method_obj->params();
 	$description = $comment->description(array('periods', 'one_line', 'markdown'));
 	$comment_params = $comment->tags('param', 'type');
