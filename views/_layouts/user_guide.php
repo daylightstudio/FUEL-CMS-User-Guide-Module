@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FUEL CMS User Guide : Version <?=FUEL_VERSION?> : <?=$page_title?></title>
 
-<?=css('userguide, fuel_override, shCore, shThemeDefault', 'user_guide')?>
+<?=css('userguide, shCore, shThemeDefault', 'user_guide')?>
 
 <meta http-equiv='expires' content='-1' />
 <meta http-equiv= 'pragma' content='no-cache' />

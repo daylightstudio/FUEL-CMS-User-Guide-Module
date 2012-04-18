@@ -1,4 +1,4 @@
-<?php if ($class->properties()) : ?>
+<?php if ($class->properties(array('public', 'protected'))) : ?>
 <h2>Properties Reference</h2>
 
 <table border="0" cellspacing="1" cellpadding="0" class="tableborder">
@@ -8,37 +8,52 @@
 			<th>Default Value</th>
 			<th>Description</th>
 		</tr>
-	<?php foreach($class->properties() as $prop => $prop_obj) : ?>
+	<?php 
+	$types = array('public', 'protected');
+	foreach($types as $type) : 
+	$props = $class->properties($type);
+	if (!empty($props)) :
+	?>
 		<tr>
-			<td><strong><?=$prop?></strong></td>
-			<td>
-				<?php
-				if (empty($prop_obj->value))
-				{
-					echo 'none';
-				}
-				else if (is_object($prop_obj->value))
-				{
-					echo 'object';
-				}
-				else if (is_string($prop_obj->value))
-				{
-					echo str_replace(array("\n", "\t"), array('\n', '\t'), htmlentities($prop_obj->value));
-				} 
-				else if (is_array($prop_obj->value))
-				{
-					echo "<pre>";
-					print_r($prop_obj->value);
-					echo "</pre>";
-				}
-				else if (!empty($prop_obj->value))
-				{
-					echo $prop_obj->value;
-				}
-				?>
-			</td>
-			<td><?=$prop_obj->comment->description()?></td>
+			<td colspan="3" class="hdr"><?=$type?></td>
 		</tr>
+	<?php endif; ?>
+	<?php foreach($props as $prop => $prop_obj) : ?>
+			<tr>
+				<td><strong><?=$prop?></strong></td>
+				<td>
+					<?php
+					if ($type != 'public') 
+					{
+						echo 'N/A';
+					}
+					else if (is_array($prop_obj->value))
+					{
+						echo "<pre>";
+						print_r($prop_obj->value);
+						echo "</pre>";
+					}
+					else if (empty($prop_obj->value))
+					{
+						echo 'none';
+					}
+					else if (is_object($prop_obj->value))
+					{
+						echo 'object';
+					}
+					else if (is_string($prop_obj->value))
+					{
+						echo str_replace(array("\n", "\t"), array('\n', '\t'), htmlentities($prop_obj->value));
+					} 
+					else if (!empty($prop_obj->value))
+					{
+						echo htmlentities($prop_obj->value);
+					}
+					?>
+				</td>
+				<td><?=$prop_obj->comment->description(array('entities', 'ucfirst'))?></td>
+			</tr>
+		<?php endforeach; ?>
 	<?php endforeach; ?>
 	</tbody>
 </table>

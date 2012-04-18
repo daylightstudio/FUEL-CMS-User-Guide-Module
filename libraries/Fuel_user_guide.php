@@ -40,7 +40,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									'use_nav' => TRUE,
 									'user_footer' => TRUE,
 									); // Default display options
-	public $valid_folders = array('libraries', 'helpers', 'general', 'models'); // valid folders for autom documentation
+	public $valid_folders = array('libraries', 'helpers', 'general', 'models', 'core'); // valid folders for autom documentation
 	protected $current_page;
 	protected $_examples = array();
 
@@ -166,7 +166,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 */
 	function page_title($page)
 	{
-		preg_match('#<h1>(.+)<\/h1>#U', $page, $matches);
+		preg_match('#<h1[^>]*>(.+)<\/h1>#U', $page, $matches);
 		if (!empty($matches[1]))
 		{
 			return strip_tags($matches[1]);
@@ -228,6 +228,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$vars['use_footer'] = $this->display_option('use_footer');
 		$vars['sections'] = array();
 		$vars['breadcrumb'] = array();
+		$vars['CI'] =& $this->CI;
 		return $vars;
 	}
 	

@@ -67,7 +67,8 @@
 					<li><a href="<?=user_guide_url('general/caching')?>">Caching</a></li>
 					<li><a href="<?=user_guide_url('general/security')?>">Security</a></li>
 					<li><a href="<?=user_guide_url('general/localization')?>">Localization</a></li>
-					<li><a href="<?=user_guide_url('general/constants')?>">FUEL constants</a></li>
+					<li><a href="<?=user_guide_url('general/constants')?>">FUEL Constants</a></li>
+					<li><a href="<?=user_guide_url('general/configs')?>">Config files</a></li>
 					<li><a href="<?=user_guide_url('general/extending')?>">Extending FUEL</a></li>
 				</ul>
 			</td>
@@ -119,8 +120,8 @@
 
 				<h3>3rd Party Classes</h3>
 				<ul>
-					<li><a href="<?=user_guide_url('libraries/modular_extensions')?>">Modular Extensions - HMVC Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/cache')?>">Cache Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/modular_extensions')?>">Modular Extensions - HMVC Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/simplepie')?>">Simplepie Class</a></li>
 				</ul>
 				
@@ -128,10 +129,10 @@
 				<ul>
 					<li><a href="<?=user_guide_url('libraries/my_db_mysql_driver')?>">MY_DB_mysql_driver Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/my_db_mysql_result')?>">MY_DB_mysql_result Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/my_model')?>">MY_Model Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/my_image_lib')?>">MY_Image_lib Class</a></li>
-					<li><a href="<?=user_guide_url('libraries/my_parser')?>">MY_Parser Class</a></li>
 					<li><a href="<?=user_guide_url('libraries/my_hooks')?>">MY_Hooks Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/my_image_lib')?>">MY_Image_lib Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/my_model')?>">MY_Model Class</a></li>
+					<li><a href="<?=user_guide_url('libraries/my_parser')?>">MY_Parser Class</a></li>
 				</ul>
 
 			</td>

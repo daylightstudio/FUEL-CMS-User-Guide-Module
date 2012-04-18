@@ -155,10 +155,14 @@ class User_guide extends Fuel_base_controller {
 							}
 
 						}
+						if ($this->fuel->user_guide->page_segment(2))
+						{
+							$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
+						}
 					}
 				}
 
-				if (!$this->fuel->user_guide->config('authenticate') OR $this->fuel->auth->has_permission('user_guide_'.$module) AND isset($body))
+				if (!$this->fuel->user_guide->config('authenticate') OR ($this->fuel->auth->has_permission('user_guide_'.$module) AND isset($body)))
 				{
 					$vars['body'] = $body;
 					if ($file)
@@ -176,7 +180,6 @@ class User_guide extends Fuel_base_controller {
 						}
 					}
 				}
-
 			}
 			else
 			{

@@ -14,7 +14,7 @@ $comment = $class->comment();
 if (strtoupper($comment->tags('autodoc')) != 'FALSE') :
 ?>
 <div class="toggle_container">
-<h1><?=$class->friendly_name()?> Class</h1>
+<h1 id="<?=strtolower($class->name)?>"><?=$class->friendly_name()?> Class</h1>
 <?php
 $comment->add_filter($user_guide_links_func);
 echo $comment->description(array('long', 'periods', 'markdown'));
@@ -25,15 +25,17 @@ if ($example) :
 endif;
 ?>
 <?php if ($class->parent()) : ?>
-<p>This class extends the <a href="<?=user_guide_url('modules/'.$module.'/'.strtolower($class->parent()))?>"><?=$class->parent()?></a> class.</p>
+	<p>This class extends the <dfn><?=$class->parent()?></dfn> class.</p>
 <?php endif; ?>
 
 <?=user_guide_block('properties', array('class' => $class)) ?>
 
 <?=user_guide_block('function_list', array('class' => $class)) ?>
 
-<?php endif; ?>
 </div>
+
+<?php endif; ?>
+
 <?php endif; ?>
 <br /><br />
 <?php endforeach; ?>
