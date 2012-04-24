@@ -68,7 +68,7 @@ form { margin: 0; padding: 0; }
 
 /* FUEL OVERWRITES */
 #fuel_logo { width: 200px; height: 200px; margin: 10px auto 20px auto; display: block; }
-#nav { background: #000 url(http://www.getfuelcms.com/assets/images/bg_waves.jpg) no-repeat top center; margin: 0; padding: 0; } 
+#nav { background: #000 url(../images/bg_waves.jpg) no-repeat top center; margin: 0; padding: 0; } 
 #nav h2 { color: #fff; }
 #nav2 { position: relative; margin-bottom: 10px; padding-right: 0px; background: #000; min-height: 10px; }
 #nav_container { position: fixed; top: 0px; left: 0; min-height: 10px; width: 100%; z-index: 999; opacity: .95 }
