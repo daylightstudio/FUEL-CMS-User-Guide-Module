@@ -532,18 +532,18 @@ Examples:
 
 <pre class="brush: php">
 echo $this->asset->css('main');
-// &lt;link href="/assets/css/main.css" media="all" rel="stylesheet"/&gt;
+// &lt;link href="/assets/css/main.css" rel="stylesheet"/&gt;
 
 echo $this->asset->css('main, home');
-// &lt;link href="/assets/css/main.css" media="all" rel="stylesheet"/&gt;
-// &lt;link href="/assets/css/home.css" media="all" rel="stylesheet"/&gt;
+// &lt;link href="/assets/css/main.css" rel="stylesheet"/&gt;
+// &lt;link href="/assets/css/home.css" rel="stylesheet"/&gt;
 
 echo $this->asset->js(array('main', 'home'));
-// &lt;link href="/assets/css/main.css" media="all" rel="stylesheet"/&gt;
-// &lt;link href="/assets/css/home.css" media="all" rel="stylesheet"/&gt;
+// &lt;link href="/assets/css/main.css" rel="stylesheet"/&gt;
+// &lt;link href="/assets/css/home.css" rel="stylesheet"/&gt;
 
 echo $this->asset->css('main', 'my_module');
-// &lt;link href="fuel/modules/my_module/assets/css/main.css" media="all" rel="stylesheet"/&gt;
+// &lt;link href="fuel/modules/my_module/assets/css/main.css" rel="stylesheet"/&gt;
 
 echo $this->asset->css('main', NULL, array('output' => TRUE, 'attrs' => 'media="print"', 'ie_conditional' => 'lte IE 6'));
 // &lt;!--[if lte IE 6]&gt;
