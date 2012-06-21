@@ -1,6 +1,6 @@
 <?php 
 $config['name'] = 'User Guide Module';
-$config['version'] = TESTER_VERSION;
+$config['version'] = USER_GUIDE_VERSION;
 $config['author'] = 'David McReynolds';
 $config['company'] = 'Daylight Studio';
 $config['license'] = 'Apache 2';
