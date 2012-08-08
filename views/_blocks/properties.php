@@ -1,6 +1,5 @@
 <?php if ($class->properties(array('public', 'protected'))) : ?>
 <h2>Properties Reference</h2>
-
 <table border="0" cellspacing="1" cellpadding="0" class="tableborder">
 	<tbody>
 		<tr>
@@ -30,8 +29,26 @@
 					else if (is_array($prop_obj->value))
 					{
 						echo "<pre>";
-						print_r($prop_obj->value);
-						echo "</pre>";
+						if (!empty($prop_obj->value))
+						{
+							foreach($prop_obj->value as $key => $val)
+							{
+								echo $key.' => ';
+								if (!is_object($val))
+								{
+									print_r($val);
+								}
+								echo "\n";
+							}
+							echo "</pre>";
+							// echo "<pre>";
+							// print_r($prop_obj->value);
+							// echo "</pre>";
+						}
+						else
+						{
+							print_r(array());
+						}
 					}
 					else if (empty($prop_obj->value))
 					{
