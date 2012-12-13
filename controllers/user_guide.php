@@ -39,7 +39,7 @@ class User_guide extends Fuel_base_controller {
 		parent::__construct(FALSE);
 		if ($this->fuel->user_guide->config('authenticate'))
 		{
-			$this->fuel->admin->check_login();
+			$this->_validate_user('tools/user_guide');
 		}
 		$this->fuel->cache->set_cache_path($this->fuel->user_guide->config('cache_path'));
 		$this->fuel->cache->clear_all();
@@ -47,6 +47,8 @@ class User_guide extends Fuel_base_controller {
 	
 	function _remap()
 	{
+		
+
 		$this->current_page = $this->fuel->user_guide->current_page();
 		
 		$cache_id = $this->current_page;
