@@ -452,7 +452,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$config = array();
 		if (!empty($file))
 		{
-			preg_match_all("#^//([^\-]+);#Ums", $file, $matches);
+			preg_match_all("#^\s*//([^\-]+);#Ums", $file, $matches);
 			if (isset($matches[1]))
 			{
 				foreach($matches[1] as $match)
