@@ -198,7 +198,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 
 		if (is_file(FUEL_PATH.'views/_docs'.$prev_page.EXT))
 		{
-			$prev_view = $this->CI->load->module_view(FUEL_PATH, '_docs'.$prev_page, $vars, TRUE);
+			$prev_view = $this->CI->load->module_view(FUEL_FOLDER, '_docs'.$prev_page, $vars, TRUE);
 			$vars['breadcrumb'][$this->page_title($prev_view)] = $prev_page;
 		}
 		return $vars['breadcrumb'];
