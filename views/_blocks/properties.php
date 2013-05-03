@@ -31,24 +31,37 @@
 						echo "<pre>";
 						if (!empty($prop_obj->value))
 						{
+							$last = count($prop_obj->value) - 1;
+							echo "array(";
 							foreach($prop_obj->value as $key => $val)
 							{
-								echo $key.' => ';
+								$is_last = $key == $last;
+								if (!is_int($key))
+								{
+									echo "'".$key."' => ";
+								}
+								
 								if (!is_object($val))
 								{
+									if (is_string($val)) echo "'";
 									print_r($val);
+									if (is_string($val)) echo "'";
+									if (!$is_last) echo ', ';
 								}
-								echo "\n";
+								//echo "\n";
 							}
-							echo "</pre>";
+							echo ')';	
 							// echo "<pre>";
 							// print_r($prop_obj->value);
 							// echo "</pre>";
 						}
 						else
 						{
-							print_r(array());
+							echo "array()";
 						}
+
+						echo "</pre>";
+						
 					}
 					else if (empty($prop_obj->value))
 					{
