@@ -44,7 +44,7 @@
 								if (!is_object($val))
 								{
 									if (is_string($val)) echo "'";
-									print_r($val);
+									echo str_replace('Array', 'array', print_r($val, TRUE));
 									if (is_string($val)) echo "'";
 									if (!$is_last) echo ', ';
 								}
