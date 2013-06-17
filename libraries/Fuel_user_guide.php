@@ -41,6 +41,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 									'user_footer' => TRUE,
 									); // Default display options
 	public $valid_folders = array('libraries', 'helpers', 'general', 'models', 'core'); // valid folders for autom documentation
+	public $preload_classes = array();
 	protected $current_page;
 	protected $_examples = array();
 
@@ -59,10 +60,6 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$this->fuel->load_library('fuel_pagevars');
 		$this->load_helper('user_guide');
 		
-		if (!empty($params))
-		{
-			$this->initialize($params);
-		}
 		$this->init_page();
 		
 	}
@@ -83,7 +80,10 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	{
 		parent::initialize($params);
 		$this->set_params($this->_config);
-		
+		foreach($this->preload_classes as $class)
+		{
+			require_once($class);
+		}
 	}
 	
 	// --------------------------------------------------------------------
@@ -315,12 +315,12 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		{
 			$module = $this->page_segment(2);
 		}
-		
+
 		if ($folder == 'libraries')
 		{
 			$file = ucfirst($file);
 		}
-		
+
 		// bring in examples if they exist
 		$valid_app_names = array('app', 'application');
 		$examples_path = MODULES_PATH.$module.'/views/_docs/examples/'.strtolower($file).'_examples'.EXT;
@@ -350,6 +350,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 			$source = preg_replace("#<\?=user_guide_url\([\'\"](.+)[\'\"]\)\?>#U", "'.user_guide_url().'/$1", $source);
 			return $source;
 		');
+
 		$this->CI->inspection->initialize(array('file' => $class_path));
 		
 		switch($folder)

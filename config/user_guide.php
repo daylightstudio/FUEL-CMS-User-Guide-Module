@@ -31,3 +31,6 @@ $config['user_guide']['root_url'] = FUEL_ROUTE.'tools/user_guide/';
 // the value set is an array of modules to allow it to automatically generate.
 // setting it to TRUE will allow all modules
 $config['user_guide']['allow_auto_generation'] = TRUE;
+
+// classes that may need to be loaded before generating documentation for certain classes (e.g. model classes)
+$config['user_guide']['preload_classes'] = array(BASEPATH.'core/Model.php', FUEL_PATH.'core/MY_Model.php');
