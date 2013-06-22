@@ -42,7 +42,6 @@ class User_guide extends Fuel_base_controller {
 			$this->_validate_user('tools/user_guide');
 		}
 		$this->fuel->cache->set_cache_path($this->fuel->user_guide->config('cache_path'));
-		$this->fuel->cache->clear_all();
 	}
 	
 	function _remap()
