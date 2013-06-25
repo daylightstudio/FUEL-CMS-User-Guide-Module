@@ -141,6 +141,8 @@ class User_guide extends Fuel_base_controller {
 							$file_name = strtolower($file);
 						}
 
+						$file_name = preg_replace('#^my_(\w+)#', 'MY_$1', $file_name);
+
 						$file_path = MODULES_PATH.$module.'/'.$folder.'/'.$file_name.EXT;
 						if (file_exists($file_path))
 						{
