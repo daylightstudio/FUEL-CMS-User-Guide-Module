@@ -1,5 +1,5 @@
 # USER GUIDE MODULE FOR FUEL CMS
-This is a [FUEL CMS](http://www.getfuelcms.com) user_guide module for adding user_guide like functionality including posts, categories, and commenting.
+This is a [FUEL CMS](http://www.getfuelcms.com) user_guide module provides both documentation for FUEL CMS and installed modules.
 
 ## INSTALLATION
 There are a couple ways to install the module. If you are using GIT you can use the following method
