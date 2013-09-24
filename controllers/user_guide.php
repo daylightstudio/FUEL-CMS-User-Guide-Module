@@ -113,6 +113,10 @@ class User_guide extends Fuel_base_controller {
 				{
 					$module = $this->fuel->user_guide->page_segment(2);
 					$file = $this->fuel->user_guide->page_segment(3);
+					if (!empty($file) AND $file != 'index')
+					{
+						$module_view_path = '_docs/'.$file;	
+					}
 				}
 
 				$body = '';
