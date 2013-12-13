@@ -1,9 +1,9 @@
 /* BASE CI STYLES */
 * { outline-style: none; -moz-outline-style: none; -webkit-text-size-adjust: none; }
 body { margin: 0; padding: 0; font-family: Lucida Grande, Verdana, Geneva, Sans-serif; font-size: 14px; color: #333; background-color: #fff; }
-a { color: #0134c5; background-color: transparent; text-decoration: none; } 
-a:visited { color: #0134c5; background-color: transparent; text-decoration: none; } 
-a:hover { color: #000; text-decoration: none; background-color: transparent; }
+a { color: #3dbfd9; background-color: transparent; text-decoration: none; } 
+a:visited { color: #3dbfd9; background-color: transparent; text-decoration: none; } 
+a:hover { color: #70d2e5; text-decoration: none; background-color: transparent; }
 #breadcrumb { background-color: transparent; padding: 10px 0 0 42px; font-size: 10px; color: #666; }
 #breadcrumb_right { float: right; width: 175px; background-color: transparent; padding: 8px 8px 3px 0; text-align: right; font-size: 10px; color: #666; }
 #nav { background-color: #494949; margin: 0; padding: 0; } 
@@ -18,12 +18,12 @@ a:hover { color: #000; text-decoration: none; background-color: transparent; }
 #nav_inner a:visited { color: #eee; background-color: transparent; text-decoration: none; }
 #nav_inner a:hover { color: #ccc; text-decoration: none; background-color: transparent; }
 #masthead { margin: 0 40px 0 35px; padding: 0 0 0 6px; border-bottom: 1px solid #999; }
-#masthead h1 { background-color: transparent; color: #e13300; font-size: 18px; font-weight: normal; margin: 0; padding: 0 0 6px 0; }
+#masthead h1 { background-color: transparent; color: #333; font-size: 18px; font-weight: normal; margin: 0; padding: 0 0 6px 0; }
 #searchbox { background-color: transparent; padding: 6px 40px 0 0; text-align: right; font-size: 10px; color: #666; }
 #img_welcome { border-bottom: 1px solid #D0D0D0; margin: 0 40px 0 40px; padding: 0; text-align: center; }
 #content { margin: 20px 40px 0 40px; padding: 0; }
 #content p { margin: 0px 20px 20px 0; line-height: 20px; }
-#content h1 { color: #e13300; border-bottom: 1px solid #666; background-color: transparent; font-weight: normal; font-size: 28px; margin: 0 0 20px 0; padding: 10px 0 7px 3px; }
+#content h1 { color: #333; border-bottom: 1px solid #666; background-color: transparent; font-weight: normal; font-size: 28px; margin: 0 0 20px 0; padding: 10px 0 7px 3px; }
 #content h2 { background-color: transparent; border-bottom: 1px solid #999; color: #000;  font-size: 20px; font-weight: bold; margin: 25px 0 25px 0; padding: 15px 0 6px 0; }
 #content h3 { background-color: transparent; border-bottom: 1px solid #ddd; color: #333; font-size: 16px; font-weight: bold; margin: 25px 0 5px 0; padding: 15px 0 6px 0; }
 #content h3.noline { border-bottom: none; padding-bottom: 0; }
@@ -66,8 +66,8 @@ form { margin: 0; padding: 0; }
 
 
 /* FUEL OVERWRITES */
-#fuel_logo { width: 200px; height: 200px; margin: 10px auto 20px auto; display: block; }
-#nav { background: #000 url(../images/bg_waves.jpg) no-repeat top center; margin: 0; padding: 0;
+#fuel_logo { width: 200px; height: 150px; margin: 10px auto 20px auto; display: block; }
+#nav { background: #000 no-repeat top center; margin: 0; padding: 0;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #333), color-stop(1, #000));
 	background: -moz-linear-gradient(top center, #333 0%, #000 100%);
 	
