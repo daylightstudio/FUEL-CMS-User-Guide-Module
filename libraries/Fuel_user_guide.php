@@ -481,10 +481,10 @@ class Fuel_user_guide extends Fuel_advanced_module {
 					{
 						$key = $key_arr[$key1];
 						$comment = current(explode('$config', $match));
-						$default = '<pre>'.$key_arr[$key2].'</pre>';
+						$default = '<pre>'.htmlentities($key_arr[$key2]).'</pre>';
 						$c = new stdClass();
 						$c->param = $key;
-						$c->comment  = $comment;
+						$c->comment  = htmlentities($comment);
 						$c->default_value = $default;
 						$config[$key] = $c;
 					}
