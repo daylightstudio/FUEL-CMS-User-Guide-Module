@@ -468,15 +468,14 @@ class Fuel_user_guide extends Fuel_advanced_module {
 					$key2 = 4;
 					if ($module == FUEL_FOLDER)
 					{
-						preg_match('#\$config\[([\'|"])(.+)\\1\]\s*=\s*(.+)#ms', $match, $key_arr);
+						preg_match('#\$config\[([\'|"])(.+)\\1\]\s*=\s*([^\]]+)#ms', $match, $key_arr);
 						$key1 = 2;
 						$key2 = 3;
 					}
 					else
 					{
-						preg_match('#\$config\[([\'|"])'.$module.'\\1\]\[([\'|"])(.+)\\2\]\s*=\s*(.+)#ms', $match, $key_arr);
+						preg_match('#\$config\[([\'|"])'.$module.'\\1\]\[([\'|"])([^\]]+)\\2\]\s*=\s*(.+)#ms', $match, $key_arr);
 					}
-
 					if (isset($key_arr[$key1]) AND isset($key_arr[$key2]))
 					{
 						$key = $key_arr[$key1];
