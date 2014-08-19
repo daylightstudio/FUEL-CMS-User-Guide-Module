@@ -8,8 +8,8 @@
  *
  * @package		FUEL CMS
  * @author		David McReynolds @ Daylight Studio
- * @copyright	Copyright (c) 2013, Run for Daylight LLC.
- * @license		http://docs.getfuelcms.com/general/license
+ * @copyright	Copyright (c) 2012, Run for Daylight LLC.
+ * @license		http://www.getfuelcms.com/user_guide/general/license
  * @link		http://www.getfuelcms.com
  * @filesource
  */
@@ -23,7 +23,7 @@
  * @subpackage	Libraries
  * @category	Libraries
  * @author		David McReynolds @ Daylight Studio
- * @link		http://docs.getfuelcms.com/modules/user_guide
+ * @link		http://www.getfuelcms.com/user_guide/modules/user_guide
  */
 
 // --------------------------------------------------------------------
@@ -46,7 +46,6 @@ class User_guide extends Fuel_base_controller {
 	
 	function _remap()
 	{
-		
 
 		$this->current_page = $this->fuel->user_guide->current_page();
 		
@@ -127,6 +126,7 @@ class User_guide extends Fuel_base_controller {
 				}
 				else if ($allow_auto_generation === TRUE OR in_array($module, $allow_auto_generation))
 				{
+
 					if (!empty($file))
 					{
 						$uri_folder = $this->fuel->user_guide->page_segment(4);
@@ -162,6 +162,7 @@ class User_guide extends Fuel_base_controller {
 							}
 
 						}
+
 						if ($this->fuel->user_guide->page_segment(2))
 						{
 							$vars['sections'] = $this->fuel->user_guide->breadcrumb($this->current_page);
@@ -171,6 +172,7 @@ class User_guide extends Fuel_base_controller {
 
 				if (!$this->fuel->user_guide->config('authenticate') OR ($this->fuel->auth->has_permission('user_guide_'.$module) AND isset($body)))
 				{
+
 					$vars['body'] = $body;
 					if ($file)
 					{
@@ -180,22 +182,23 @@ class User_guide extends Fuel_base_controller {
 							{
 								$vars['sections'] = array($vars['modules'][$module] => 'modules/'.$module);
 							}
+
 						}
 						else
 						{
-							show_404();
+							redirect_404();
 						}
 					}
 				}
 			}
 			else
 			{
-				show_404();
+				redirect_404();
 			}
 
 			if (empty($vars['body']))
 			{
-				show_404();
+				redirect_404();
 			}
 
 			$vars['page_title'] = $this->fuel->user_guide->page_title($vars['body']);
