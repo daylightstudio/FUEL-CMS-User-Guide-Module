@@ -479,6 +479,10 @@ class Fuel_user_guide extends Fuel_advanced_module {
 					if (isset($key_arr[$key1]) AND isset($key_arr[$key2]))
 					{
 						$key = $key_arr[$key1];
+						if (strpos($key, "']['") !== FALSE)
+						{
+							$key = "[".str_replace("'", "", $key)."]";
+						}
 						$comment = current(explode('$config', $match));
 						$default = '<pre>'.htmlentities($key_arr[$key2]).'</pre>';
 						$c = new stdClass();
