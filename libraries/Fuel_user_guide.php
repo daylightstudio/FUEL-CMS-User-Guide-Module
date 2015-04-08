@@ -454,7 +454,8 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		if (!empty($file))
 		{
 			//preg_match_all("#^\s*//([^\-]+);#Ums", $file, $matches);
-			preg_match_all("#^\s*//(.+);#Ums", $file, $matches);
+			//preg_match_all("#^\s*//(.+);#Ums", $file, $matches);
+			preg_match_all("#^\s*//(?!\s-+)(.+);#Ums", $file, $matches);
 			if (isset($matches[1]))
 			{
 				foreach($matches[1] as $match)
@@ -462,13 +463,13 @@ class Fuel_user_guide extends Fuel_advanced_module {
 					// remove any extra comment slashes
 					$match = str_replace('//', '', $match);
 					$match = trim_multiline($match);
-					
+
 					// FUEL config doesn't use the prefix key
 					$key1 = 3;
 					$key2 = 4;
 					if ($module == FUEL_FOLDER)
 					{
-						preg_match('#\$config\[([\'|"])(.+)\\1\]\s*=\s*([^\]]+)#ms', $match, $key_arr);
+						preg_match('#^\$config\[([\'|"])(.+)\\1\]\s*=\s*([^\]]+)#ms', $match, $key_arr);
 						$key1 = 2;
 						$key2 = 3;
 					}
