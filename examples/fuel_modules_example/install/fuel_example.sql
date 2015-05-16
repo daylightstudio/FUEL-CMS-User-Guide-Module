@@ -21,13 +21,16 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `articles` (
   `id` int(10) unsigned NOT NULL auto_increment,
-  `author_id` tinyint(3) unsigned NOT NULL default '0',
   `title` varchar(255) collate utf8_unicode_ci NOT NULL default '',
-  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `slug` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+  `author_id` tinyint(3) unsigned NOT NULL default '0',
   `content` text collate utf8_unicode_ci NOT NULL,
+  `image` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+  `thumb_image` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
   `published` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'yes',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
