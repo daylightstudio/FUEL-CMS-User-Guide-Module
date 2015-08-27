@@ -28,7 +28,7 @@
 		
 		</div>
 	</div>
-	<div id="nav2"><a name="top"></a><a href="#" id="toc_toggle" title="Shift + Spacebar to toggle display">Table of Content</a></div>
+	<div id="nav2"><a name="top"></a><a href="#" id="toc_toggle" title="Shift + Spacebar to toggle display">Table of Contents</a></div>
 </div>
 <div id="masthead">
 	<h1>FUEL CMS  User Guide : Version <?=FUEL_VERSION?></h1>

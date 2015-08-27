@@ -76,7 +76,7 @@ class Fuel_user_guide extends Fuel_advanced_module {
 	 * @param	array	config preferences
 	 * @return	void
 	 */	
-	function initialize($params)
+	function initialize($params = array())
 	{
 		parent::initialize($params);
 		$this->set_params($this->_config);
@@ -403,7 +403,8 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		if (isset($folder))
 		{
 			$files = $this->folder_files($folder, $module, $exclude);
-			$folder = end(explode('/', $folder));
+			$folder_parts = explode('/', $folder);
+			$folder = end($folder_parts);
 			$vars[$folder] = $files;
 		}
 		else

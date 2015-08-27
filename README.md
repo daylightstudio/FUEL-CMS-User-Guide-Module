@@ -8,7 +8,7 @@ to create a submodule:
 ### USING GIT
 1. Open up a Terminal window, "cd" to your FUEL CMS installation then type in: 
 Type in:
-``php index.php fuel/installer/add_git_submodule git://github.com/daylightstudio/FUEL-CMS-User-Guide-Module.git user_guide``
+``php index.php fuel/installer/add_git_submodule https://github.com/daylightstudio/FUEL-CMS-User-Guide-Module.git user_guide``
 
 2. Then to install, type in:
 ``php index.php fuel/installer/install user_guide``
