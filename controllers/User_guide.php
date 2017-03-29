@@ -142,7 +142,7 @@ class User_guide extends Fuel_base_controller {
 						else if (preg_match('#_model$#', $file))
 						{
 							$folder = 'models';
-							$file_name = strtolower($file);
+							$file_name = ucfirst(strtolower($file));
 						}
 
 						$file_name = preg_replace('#^my_(\w+)#', 'MY_$1', $file_name);
