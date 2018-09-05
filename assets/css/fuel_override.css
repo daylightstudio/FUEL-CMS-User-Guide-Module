@@ -5,7 +5,7 @@
 #nav2 { position: relative; margin-bottom: 10px; padding-right: 0px; background: #000; min-height: 10px; }
 #nav_container { position: fixed; top: 0px; left: 0; min-height: 10px; width: 100%; z-index: 999; opacity: .95 }
 
-#toc_toggle { display: block; position: absolute; bottom: -15px; right: 38px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4) background-color: #000;  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);  background: #000;text-align: center; color: #fff; padding: 5px 20px ; font-size: 11px; }
+#toc_toggle { display: block; position: absolute; bottom: -15px; right: 38px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4); background-color: #000;  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);  background: #000;text-align: center; color: #fff; padding: 5px 20px ; font-size: 11px; }
 #nav_inner .td_sep { background: transparent; width: 16%; padding: 0 0 0 20px; border-left: 1px solid #316799; }
 #nav_inner .td { width: 16%; }
 #masthead { margin-top: 30px; }
