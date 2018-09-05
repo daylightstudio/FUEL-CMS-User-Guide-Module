@@ -345,11 +345,11 @@ class Fuel_user_guide extends Fuel_advanced_module {
 		$vars['folder'] = $folder;
 		$vars['examples'] = $examples;
 		
-		$vars['user_guide_links_func'] = create_function('$source', '
+		$vars['user_guide_links_func'] = function($source){
 			$source = str_replace(array("[user_guide_url]", "<user_guide_url>"), "'.user_guide_url().'/", $source);
 			$source = preg_replace("#<\?=user_guide_url\([\'\"](.+)[\'\"]\)\?>#U", "'.user_guide_url().'/$1", $source);
 			return $source;
-		');
+		};
 
 		$this->CI->inspection->initialize(array('file' => $class_path));
 		
